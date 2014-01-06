@@ -31,7 +31,97 @@ fancyhdr, wrapfig}
 \tableofcontents \newpage
 
 \section{Introduction}
-\emph{Monday, January 6, 2013}
+\emph{Monday, January 6, 2013}\\
 
+\n This course is called ``Interstellar Medium'' (ISM), but really it is about the more general topic of the physics of diffuse gas in the universe. By diffuse, we mean \emph{really} diffuse, down to number densities of 1 cm$^{-3}$, much more diffuse than the best vacuums in terrestrial laboratories. This includes the interstellar gas in galaxies as well as the intergalactic gas in between the galaxies.\\
+
+\subsection{A First Look at the Milky Way} % (fold)
+\label{sub:a_first_look}
+Interstellar gas is what forms the stars in galaxies that are the dominant sources of energy and light in the universe. Thus, understanding the physics of the ISM helps us understand (and predict) the visible appearance of galaxies.\\
+
+\noindent The space between the stars is occupied by gas, dust, photons, neutrinos, cosmic rays, and magnetic and gravitational fields. Do note that dust is distinct from gas, as dust grains have a lengthscale (micron) four orders of magnitude greater than gas particles (angstrom).\\
+
+\noindent In the Milky Way, there is roughly $10^{11}\ M_\odot$ in various components:
+\begin{itemize}
+  \item $5\times 10^{10}\ M_\odot$ of stars
+  \item $5\times 10^{10}\ M_\odot$ of dark matter
+  \item $7\times 10^{9}\ M_\odot$ of interstellar gas
+\end{itemize}
+So the Milky Way is a rather gas-poor galaxy. Other galaxies like the Magellanic clouds have most of their baryons in the gas phase. The obscuration in the central disk of the Milky Way is produced by the dust along the midplane (see color plate in 1.2, 1.65, 2.2 $\mu$m images). While the stars do form in a very thin disk (thin compared to its width), the starlight heats up dust and expands the dust disk to higher altitudes from the midplane.\\
+
+\n The magnetic fields in the Milky Way can be detected by looking for synchrotron emission (caused by electrons spiraling around galactic field lines). We do observe this emission (see additional plate) and believe the magnetic fields are caused by a dynamo effect due to the circulating galactic material.\\
+
+\subsubsection{Gas Content} % (fold)
+\label{ssub:gas_content}
+There is about $5\times 10^9\ M_\odot$ of hydrogen in the Milky Way, in the following states
+\begin{itemize}
+  \item $2.9\times 10^9\ M_\odot$ of HI gas (neutral)
+  \item $1.12\times 10^9\ M_\odot$ of HII gas (ionized)
+  \item ??? of H$_{2}$ gas (molecular)
+\end{itemize}
+We also track the presence of interstellar gas by looking at C$^+$ emission in the Milky Way, which tracks hydrogen presence very weell, though the weighting is different since the emission strength is proportional to the density squared.\\
+
+\n Finally, we track galactic gas via CO emission, which is very concentrated to the disk, but also has strong filaments outside the central disk of the galaxy.\\
+
+\n The interestellar medium exhibits turbulence that is the reult of supernovae and other violent hydrodynamic events.
+% subsubsection gas_content (end)
+
+\paragraph{Phases of Interstellar Gas} % (fold)
+\label{ssub:phases_of_interstellar_gas}
+We categorize the ISM into various phases according to the ionization/molecular state of its hydrogen:
+  \begin{itemize}
+    \item \textbf{Warm HI}
+    \item \textbf{Cool HI}
+    \item \textbf{Diffuse H}$_{2}$
+    \item \textbf{Dense H}$_{2}$
+    \item \textbf{Ionized HII} at $10^4$ K
+    \item \textbf{Coronal Gas} (Ionized HII at $\log T > 5.5$)
+  \end{itemize}
+% paragraph phases_of_interstellar_gas (end)
+\paragraph{Elemental Composition} % (fold)
+\label{par:elemental_composition}
+The gas is largely made of hydrogen and helium from the early universe, but an additional 1-2\% (by mass) is heavy elements ($Z>2$), or to astronomers, ``metals''. We know this based on measuring solar photospheric abundances and meteorites. % TODO Fill this out
+% paragraph elemental_composition (end)
+
+\subsubsection{Energy Content} % (fold)
+\label{ssub:energy_content}
+Energy in the CMB has a strange equipartition where nearly all components are near 1 eV cm$^{-3}$. Some of this is self-sustaining, but since the CMB energy density increases as $(1+z)^4$, its equality is coincidental. The rough energy densities by categories are given in Table~\ref{tab:1.1}
+\begin{table}
+  \centering
+  \begin{tabular}{l l}
+    Energy Type & Density (eV $\mathrm{cm^{-3}}$)\\
+    \hline
+    Thermal & 0.49\\
+    Bulk Kinetic & 0.22\\
+    Cosmic Ray & 1.39\\
+    Magnetic & 0.89\\
+    CMB & 0.265\\
+    Far infrared from dust & 0.31 \\
+    Starlight & 0.54
+  \end{tabular}
+  \caption{Energy densities in the ISM.}
+  \label{tab:1.1}
+\end{table}
+% TODO Explain Equipartition
+If any of these components grows much larger than the gravitational binding energy, then hydrostatic equilibrium is disrupted, driving a wind. All galaxies drive winds at some time.
+% subsubsection energy_content (end)
+\subsubsection{Galactic Endgame} % (fold)
+\label{ssub:galactic_endgame}
+All of the ISM constituents are present between galaxies, and the same physical processes appply to studying the intergalactic medium (IGM). In our present state of the field, we can't account for the relative overabundance of dark matter in the vicinity of a galaxy. It is thought that the ``missing baryons'' are in the circum-galactic material (CGM). The only place where the mass is ``right'' is in massive clusters. What is unknown is what sort of lengthscale determines how far out this CGM might extend. Interestingly, the material observed in the CGM contains metals, so either galactic winds are responsible for pushing material processed by stellar evolution out of the galaxy, or very massive population III stars formed at $z\sim 20-40$ to form the first metals.
+% subsubsection galactic_endgame (end)
+% subsection a_first_look (end)
+\subsection{Basics of Diffuse Gas} % (fold)
+\label{sub:basics_of_diffuse_gas}
+Perhaps the prettiest regions of diffuse gas are the HII regions, like the Orion Nebula, which is illuminated by four central stars (the trapezium). The typical HII region has a number density around $1\ \mathrm{cm^{-3}}$ and a temperature of $10^4$\ K. A big difference between these HII regions (and in fact most instances of interstellar gas) and stellar interiors is that they are \emph{not} in local thermodynamic equilibrium (LTE).\\
+
+\n The NLTE-ness of diffuse gas iss due tot he much, much lower collision rate than in planetary atmospheres or stellar interiors. In order to achieve LTE, a gas must satisfy the following conditions:
+\begin{itemize}
+  \item Population of excited states given by Boltzmann equilibrium
+  \item Particle energies distributed according to the Maxwell distribution
+  \item Ionization balance given by Saha Equation
+  \item Photon energies described by Planck Function
+\end{itemize}
+In diffuse gas, we may indeed be able to identify a kinetic temperature that gives the average kinetic energy of the particles, but this temperature need not be the same as the Boltzmann temperature, which gives the occupation of energy states in the system. Likewise, the ionization temperature, Planck temperature (of a blackbody), and other such derived temperatures need not match such a diffuse system.
+% subsection basics_of_diffuse_gas (end)
 \end{document}
 
