@@ -123,5 +123,159 @@ Perhaps the prettiest regions of diffuse gas are the HII regions, like the Orion
 \end{itemize}
 In diffuse gas, we may indeed be able to identify a kinetic temperature that gives the average kinetic energy of the particles, but this temperature need not be the same as the Boltzmann temperature, which gives the occupation of energy states in the system. Likewise, the ionization temperature, Planck temperature (of a blackbody), and other such derived temperatures need not match such a diffuse system.
 % subsection basics_of_diffuse_gas (end)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wednesday, January 8, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Collisionally Excited Lines} % (fold)
+\label{sec:collisionally_excited_lines}
+\n\textit{Wednesday, January 8, 2014}\\
+
+\begin{table}
+  \centering
+  \begin{tabular}{l l l}
+  Environment & Number Density (cm$^{-3}$) & Collision Timescale (s)\\
+  \hline
+  Earth Atmosphere & $2\times 10^{13}$ & $\sim 10^{-9}$\\
+  Molecular Cloud & $10^6$ & $10^8$ (several days)\\
+  ISM & 1 & $10^{11}$ ($10^4$ yr)
+  \end{tabular}
+  \caption{Some characteristic collision timescales.}
+  \label{tab:2.1}
+\end{table}
+A typical timescale for collisions between particles can be estimated via
+\begin{equation}
+  \label{eq:coll:1} \tau = \frac{1}{\sigma v n}
+\end{equation}
+That is, it's essentially the inverse of the expected collision rate. Here
+$\sigma$ is the cross section for interaction, $v$ is the relative velocity of
+particles, and $n$ is the number density of particles. Some typical timescale
+for various environments are given in Table~\ref{tab:2.1}.\\
+
+\n Also of importance is the volumetric rate of emission or photons due to
+recombination, which will be proportional to the product of electron and ion
+number densities, or $r_{\mathrm{emis}}\propto n_{\mathrm{ion}}n_e$. We define
+the \textbf{Emission Measure} as
+\begin{equation}
+  \label{eq:coll:2} \mathrm{EM} = \int n_e^2 ds
+\end{equation}
+where the integral is over some path in space. The ``natural'' units for this
+measure is then pc cm$^{-6}$.
+\paragraph{Example: Emission Measure of a Nova Shell} % (fold)
+\label{par:example_emission_measure_of_a_nova_shell}
+  For a nova shell with mass $\Delta M = 10^{-4}\ M_\odot$ expanding with a
+  velocity $v=10^3\ \mathrm{km\ s^{-1}}$, we get an approximate emission
+  measure of
+  \begin{equation}
+    \mathrm{EM} = (3\times 10^{-4}\ \mathrm{pc})(10^7\ \mathrm{cm^{-3}}) \sim
+    3\times 10^{10}\ \mathrm{pc\ cm^{-6}}
+  \end{equation}
+  So at early times nova shells are very bright. We could play this game with
+  other objects like planetary nebulae (PNe), HII Regions, Diffuse warm-ionized
+  gas, or circumgalactic gas to get an idea of how bright these objects would
+  appear.
+% paragraph example_emission_measure_of_a_nova_shell (end)
+\subsection{Principle of Detailed Balance} % (fold)
+\label{sub:detailed_bal}
+  % TODO Add energy level diagram
+  If we consider an atom that has only two states, 1 and 2, with degeneracies
+  $g_1$ and $g_2$ with an energy gap $\epsilon_{12}$, the collisional cross
+  section is given by
+  \begin{equation}
+    \label{eq:coll:3} \sigma_{12}(E) = \frac{h^2}{8\pi m_e
+    E}\frac{\Omega_{12}(E)}{g_1}
+  \end{equation}
+  where $\Omega$ is the \textbf{collision strength}, which is a dimensionless
+  quantity with values around order unity. The \textbf{Principle of Detailed
+  Balance}, which we have not yet proven, tells us that
+  $\Omega_{12}=\Omega_{21}$.\\
+  
+  \n Indeed, the principle of detailed balance tells us that the rate of upwards and downward collisional transitions are equal, or
+  \begin{align}
+    \label{eq:coll:4}R_{12} &= R_{21}\\
+    \label{eq:coll:5}n_1 n_e \alpha_{12} &= n_2 n_e \alpha_{21}
+  \end{align}
+  where $\alpha$ is the collisional excitation coefficient for that reaction. To derive this principle, we turn to statistical mechanics, and the concept of a \textbf{partition function}, which is the normalization to a boltzmann distribution:
+  \begin{equation}
+    \label{eq:coll:6} Z(T) \equiv \sum_s e^{-E(s)/(kT)}
+  \end{equation}
+  % TODO fix this mess
+  where the sum is over all microstates. In a diulte gas, the partition function is actually a product of the particion functions from the internal system and that of the translational system:
+  \begin{equation}
+    \label{eq:coll:7} Z(T) = Z_{\mathrm{trans}}(T) \times Z_{\mathrm{int}}(T)
+  \end{equation}
+  Then we can define the particion function per unit volume in the usual way
+  \begin{align}
+    \label{eq:coll:8} f(T) &= \frac{Z(T)}{V}\\
+    \label{eq:coll:9} &= \left(\frac{2\pi M_x kT}{h^3}\right)^{3/2}\times Z_{\mathrm{int}}(T)
+  \end{align}
+  Where we've glossed over some details present in Draine (Chapter 3). Using statistical mechanics, we are more or less assuming we are in LTE, so the number densities of various states for the reaction
+  \begin{equation}
+    \label{eq:coll:10} A + B \rightleftharpoons C
+  \end{equation}
+  is given in the usual way:
+  \begin{equation}
+    \label{eq:coll:11} \frac{n_{\mathrm{LTE}}(C)}{n_{\mathrm{LTE}}(A)
+    n_{\mathrm{LTE}}(B)} = \frac{f(C)}{f(A)f(B)}
+  \end{equation}
+  which constrains the rate coefficients in a specific way. 
+  % TODO something about how we don't need LTE
+  Armed with this tool, we can actually try to compute collisional excitation rates:
+  \begin{align}
+    \label{eq:coll:12} R_{12} &= n_1 n_e \int_{E_{\mathrm{12}}}^\infty \sigma(v)v\,f(v)\,dv\\
+    \label{eq:coll:13} R_{21} &= n_2 n_e \int_0^\infty \sigma(v)v\,f(v)\,dv
+  \end{align}
+  Now using the principle of detailed balance, we equate these rates and get 
+  \begin{equation}
+    \label{eq:coll:14} n_1e^{-E_{12}/(kT)}\frac{\Omega_{12}}{g_1} = \frac{n_2 \Omega_{21}}{g_2}
+  \end{equation}
+  Solving for the ratio of the number densities, we get
+  \begin{equation}
+    \label{eq:coll:15} \frac{n_2}{n_1} = \frac{\alpha_{12}}{\alpha_{21}} = \frac{\Omega_{21}}{g_1}\frac{g_2}{\Omega_{12}} e^{-E_{12}/(kT)}
+  \end{equation}
+  Or, more simply
+  \begin{equation}
+    \label{eq:coll:16} \frac{n_2}{n_1} = \frac{\Omega_{21}}{\Omega_{12}} \frac{g_2}{g_1} e^{-E_{12}/(kT)}
+  \end{equation}
+  Now if we are in LTE, we immediately recover $\Omega_{21} = \Omega_{12}$ since the Boltzmann ratio is already present. However, the collision strength is an intrinsic property of the ion, so this must be true in all cases. That is, we dont' require LTE to recover $\Omega_{12}=\Omega_{21}$ simply because we proved that it \emph{does} apply in LTE, and thus at all times.
+  
+% subsection detailed_bal (end)
+\subsection{Einstein Relations} % (fold)
+\label{sub:einstein_relations}
+In the low density limit, spontaneous decay dominates emission since collisionally excited transitions are few and far between. Then the transition rate can be written as
+\begin{equation}
+  \label{eq:einstein:1} n_en_1\alpha_{12} = n_2 A_{21}
+\end{equation}
+where $A$ is the \textbf{Einstein Coefficient} for spontaneous decay from state 2 to state 1. 
+% TODO explain this next equation
+\begin{equation}
+  \label{eq:einstein:2} F_{12} = E_{12} A_{21} n_2
+\end{equation}
+% subsection einstein_relations (end)
+Subbing in some Boltzmann algebra, $n_2$ can be expressed as
+\begin{equation}
+  \label{eq:einstein:3} n_2 = \frac{n_en_1}{A_{21}} \left( \frac{2\pi \hbar^4} {k m_e^3}\right)^{1/2} \frac{\Omega_{12}}{g_1} \frac{e^{-E_12}/(kT)}{\sqrt{T}}
+\end{equation}
+Plugging \eqref{eq:einstein:3} into \eqref{eq:einstein:2} and evaluating some of the constatns, we get
+\begin{equation}
+  \label{eq:einstein:4} F_{12} = E_{21} n_e n_1 \left(8.62942\times 10^{-6}\right) \frac{1}{\sqrt{T}} \frac{\Omega_{12}}{g_1}e^{-E_{12}/(kT)}
+\end{equation}
+Now in the high density limit, we do something similar, getting
+\begin{equation}
+  \label{eq:einstein:5} n_e n_1 \alpha_{12} = n_2 A_{21} + n_e n_2 \alpha{21}
+\end{equation}
+Now we get
+\begin{equation}
+  \label{eq:einstein:6} F_{12} = E_{21} A_{21} n_1 \frac{g_2}{g_1} e^{-E_{12} / (kT)}
+\end{equation}
+These two regimes beg for us to define a critical density that separates these two limits where $n_2A_{21} = n_2n_e \alpha_{21}$, which is, after some algebra,
+\begin{equation}
+  \label{eq:einstein:7} \boxed{n_{e, \mathrm{crit}} = \frac{A_{21}g_2 T^{1/2}} {\beta \Omega_{12}}}
+\end{equation}
+where 
+\begin{equation}
+  \label{eq:einstein:8} \beta \equiv \left[\frac{2\pi \hbar^4}{k m_e^3}\right]^{1/2}
+\end{equation}
+For forbidden lines, this critical density is in the range of $10^2-10^7\ \mathrm{cm^{-3}}$. For intercombination lines, the critical density is around $10^10\ \mathrm{cm^{-3}}$. For resonance lines (aka permitted lines), the critical density is $10^{15}\ \mathrm{cm^{-3}}$
+% section collisionally_excited_lines (end)
 \end{document}
 
