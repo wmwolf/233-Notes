@@ -200,7 +200,7 @@ match such a diffuse system.
 % Wednesday, January 8, 2014 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Collisionally Excited Lines} % (fold)
-\label{sec:collisionally_excited_lines}
+\label{sec:collisionally_excited_lines} % (fold)
 \n\textit{Wednesday, January 8, 2014}\\
 
 \begin{table}
@@ -247,8 +247,8 @@ measure is then pc cm$^{-6}$.
   gas, or circumgalactic gas to get an idea of how bright these objects would
   appear.
 % paragraph example_emission_measure_of_a_nova_shell (end)
-\subsection{Principle of Detailed Balance} % (fold)
-\label{sub:detailed_bal}
+\subsection{Two-Level Atom} % (fold)
+\label{sub:two_level_atom}
   % TODO Add energy level diagram
   If we consider an atom that has only two states, 1 and 2, with degeneracies
   $g_1$ and $g_2$ with an energy gap $\epsilon_{12}$, the collisional cross
@@ -309,12 +309,9 @@ measure is then pc cm$^{-6}$.
   \begin{equation}
     \label{eq:coll:16} \frac{n_2}{n_1} = \frac{\Omega_{21}}{\Omega_{12}} \frac{g_2}{g_1} e^{-E_{12}/(kT)}
   \end{equation}
-  Now if we are in LTE, we immediately recover $\Omega_{21} = \Omega_{12}$ since the Boltzmann ratio is already present. However, the collision strength is an intrinsic property of the ion, so this must be true in all cases. That is, we dont' require LTE to recover $\Omega_{12}=\Omega_{21}$ simply because we proved that it \emph{does} apply in LTE, and thus at all times.
+  Now if we are in LTE, we immediately recover $\Omega_{21} = \Omega_{12}$ since the Boltzmann ratio is already present. However, the collision strength is an intrinsic property of the ion, so this must be true in all cases. That is, we dont' require LTE to recover $\Omega_{12}=\Omega_{21}$ simply because we proved that it \emph{does} apply in LTE, and thus at all times.\\
   
-% subsection detailed_bal (end)
-\subsection{Einstein Relations} % (fold)
-\label{sub:einstein_relations}
-In the low density limit, spontaneous decay dominates emission since collisionally excited transitions are few and far between. Then the transition rate can be written as
+\n In the low density limit, spontaneous decay dominates emission since collisionally excited transitions are few and far between. Then the transition rate can be written as
 \begin{equation}
   \label{eq:einstein:1} n_en_1\alpha_{12} = n_2 A_{21}
 \end{equation}
@@ -323,7 +320,7 @@ where $A$ is the \textbf{Einstein Coefficient} for spontaneous decay from state 
 \begin{equation}
   \label{eq:einstein:2} F_{12} = E_{12} A_{21} n_2
 \end{equation}
-% subsection einstein_relations (end)
+
 Subbing in some Boltzmann algebra, $n_2$ can be expressed as
 \begin{equation}
   \label{eq:einstein:3} n_2 = \frac{n_en_1}{A_{21}} \left( \frac{2\pi \hbar^4} {k m_e^3}\right)^{1/2} \frac{\Omega_{12}}{g_1} \frac{e^{-E_12}/(kT)}{\sqrt{T}}
@@ -349,6 +346,132 @@ where
   \label{eq:einstein:8} \beta \equiv \left[\frac{2\pi \hbar^4}{k m_e^3}\right]^{1/2}
 \end{equation}
 For forbidden lines, this critical density is in the range of $10^2-10^7\ \mathrm{cm^{-3}}$. For intercombination lines, the critical density is around $10^10\ \mathrm{cm^{-3}}$. For resonance lines (aka permitted lines), the critical density is $10^{15}\ \mathrm{cm^{-3}}$
+% subsection two_level_atom (end)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friday, January 10, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Three-Level Atom} % (fold)
+\label{sub:three_level_atom}
+\textit{Friday, January 10, 2014}
+\subsubsection*{Suggested References} % (fold)
+\label{ssub:suggested_references}
+\begin{itemize}
+  \item Dopita \& Sutherland Chapter 3
+\end{itemize}
+% subsubsection suggested_references (end)
+Now we consider the slightly more complicated three-level atom. Considering that the collisional excitation rate is, in general, given by
+\begin{equation}
+  \label{eq:three:1} C_{\mathrm{ij}} = n_e \alpha_{ij}
+\end{equation}
+for the appropriate rate factors $\alpha_{ij}$ for excitations from state $i$ to state $j$. Now we'll employ statistical equilibrium to figure out the equilibrium rates and concentrations. For level 3, we get the following
+\begin{equation}
+  \label{eq:three:2} n_1C_{13} + n_2 C_{23} = n_3(C_{31} + C_{32} + A_{32} + A_{31})
+\end{equation}
+now for level 2, we get
+\begin{equation}
+  \label{eq:three:3} n_1 C_{12} + n_3(C_{32} + A_{32}) = n_2(C_{21} + C_{23} + A_{21})
+\end{equation}
+and for normalization purposes, let's assume that the total number density is given by $n$:
+\begin{equation}
+  \label{eq:three:4} n_1 + n_2 + n_3 = n
+\end{equation}
+\eqref{eq:three:2} and \eqref{eq:three:3} essentially just equate the rates of reactions (collisional or spontaneous) for the ``formation'' of that energy state (left side) to the rates of ``destruction'' rates (right side).\\
+
+\n Now we'll make some assumptions, namely that the energy levels are roughly equally spaced, or $E_{12} \approx E_{23}$. This tells us that the rate of excitations from state 1 to state 3 will be much lower than that from state 1 to state 2, or $C_{13}\gg C_{12}$.
+% TODO Why do we make this assumption?
+Now in a low density limit, we may ignore collisional excitation, which reduces our equations to a much cleaner form:
+\begin{align}
+  \label{eq:three:5} n_1 C_{13} &= n_3(A_{32}+A_{31})\\
+  \label{eq:three:6} n_1 C_{12} + n_3A_{32} &= n_2A_{21}\\
+  \label{eq:three:7} n_1 + n_2 + n_3 &= n
+\end{align}
+Solving these equations for $n_3$ and $n_2$ gives
+\begin{align}
+  \label{eq:three:9} n_3 &= \frac{n_1 C_{13}}{A_{32} + A_{31}}\\
+  \label{eq:three:8} n_2 &= \left[n_1 C_{12} + \frac{A_{32}}{A_{32} + A_{31}} n_1 C_{13}\right]\frac{1}{A_{21}}\\
+  \label{eq:three:10} &\approx \frac{n_1 C_{12}}{A_{21}}
+\end{align}
+Then the ratio of fluxes is 
+\begin{equation}
+  \label{eq:three:11} \frac{F_{32}}{F_{21}} = \frac{n_3 A_{32} E_{32}}{n_2 A_{21}E_{21}} = \cdots = \frac{C_{13}}{C_{12}} \frac{A_{32}}{A_{32} + A_{31}} \frac{E_{32}}{E_{21}}
+\end{equation}
+Now recalling that the $C$'s are related to our $\alpha$'s, via, for example,
+\begin{equation}
+  \label{eq:three:12} C_{13} = n_3 \left(\frac{2\pi \hbar^4}{k m_e^3}\right)^{1/2} \frac{1}{\sqrt{T}} \frac{\Omega_{13}}{g_1} e^{-{E_{13}}/kT},
+\end{equation}
+\eqref{eq:three:11} reduces to a function of a bunch of physical constants and the temperature
+\begin{equation}
+  \label{eq:three:13} \boxed{\frac{F_{32}}{F_{21}} = \frac{E_{32}}{E_{21}} \frac{A_{32}}{A_{32}+A_{21}} \frac{\Omega_{13}}{\Omega_{12}} e^{-E_{23}/kT}}
+\end{equation}
+So now given a line strength ratio, we can actually compute a temperature for that diffuse gas. Some examples of ions where these assumptions are valid are N$^+$, O$^{+2}$, Ne$^{+4}$, and S$^{+2}$.\\
+
+\n Now instead if we assume that $E_{23} \ll E_{12}$ (i.e., the second and third states are very close in energy). This means, though it's not obvious, that $A_{32} \ll A_{31}$. Still in the low density limit (ignoring collisional de-excitation), we'll simplify \eqref{eq:three:2} and \eqref{eq:three:3} again:
+\begin{align}
+  \label{eq:three:14} n_1 C_{13} &= n_3(A_{32} + A_{31})\\
+  \label{eq:three:15} & \approx n_3A_{31}\\
+  \label{eq:three:16} n_1 C_{12} &= n_2 A_{21}
+\end{align}
+Then the flux ratios are simply
+\begin{equation}
+  \label{eq:three:17} \frac{F_{31}}{F_{21}} = \frac{n_1 C_{13}}{A_{31}} \frac{A_{21}}{n_1 C_{12}} \frac{E_{31}}{E_{21}} \frac{A_{31}}{A_{21}} \approx \frac{C_{13}}{C_{12}}
+\end{equation}
+So the flux rates depend \emph{only} on the collisional excitation rates in this limit. Re-expressing the flux ratio in terms of more fundamental quantities:
+\begin{equation}
+  \label{eq:three:18} \frac{F_{31}}{F_{21}} \approx \frac{C_{13}}{C_{12}} \approx \frac{\Omega_{13} e^{-E_{13}/kT}}{\Omega_{12} e^{-E_{12}/kT}} \approx \frac{\Omega_{13}}{\Omega_{12}} \approx \frac{g_{3}}{g_2}
+\end{equation}
+for somewhat unobvious reasons. So if we measure line strengths and get this magic number, all we really know is that we're in the low density limit. The magic comes in when we are in the high density limit:
+\begin{equation}
+  \label{eq:three:19} \frac{F_{31}}{F_{21}} = \frac{n_3}{n_2} \frac{A_{31}}{A_{21}} \frac{E_{31}}{E_{21}}
+\end{equation}
+Since in the high density limit there are many collisions, the number densities should be Boltzmann-like:
+\begin{equation}
+  \label{eq:three:20} \frac{n_3}{n_2} = \frac{g_3}{g_2} e^{-E_{23}/kT}\approx \frac{g_3}{g_2}
+\end{equation}
+So the flux ratio is now
+\begin{equation}
+  \label{eq:three:21} \frac{F_{31}}{F_{21}} \approx \frac{A_{31}}{A_{21}}\frac{g_3}{g_2}
+\end{equation}
+So far, this isn't really a density diagnostic, though we've identified the values at both limits. The transition between these limits should be at the critical density discusse earlier, defined by:
+\begin{equation}
+  \label{eq:three:22} A_{21} n_2 = n_e n_2 \alpha_{21}
+\end{equation}
+Earlier, we found that this critical density was found to be
+\begin{equation}
+  \label{eq:three:23} n_{e, \mathrm{crit}} = \frac{A_{21}g_2 T^{1/2}}{\beta \Omega_{12}}
+\end{equation}
+Different transitions will have different critical densities that depend on their intrinsic physics, for electron densities below the smaller critical density, the flux ratio is constant, and the same holds for electron densities greater than the larger critical density. In between, though, their is a transition zone wherein we can approximate a density. Examples of ions that allow for such a diagnostic are O$^+$, S$^+$, Ne$^{+3}$, and Ar$^{+3}$.
+% subsection three_level_atom (end)
+\subsection{Energy Level Diagrams} % (fold)
+\subsubsection*{Suggested References} % (fold)
+\label{ssub:suggested_references}
+\begin{itemize}
+  \item Draine Chapter 4
+\end{itemize}
+% subsubsection suggested_references (end)
+\label{sub:energy_level_diagrams}
+Often we will refer to ions by their atomic name followed by a roman numeral that is one greater than its oxidation state. For instance, O$^{+2}$ is referred to as O\,III.
+% TODO Add energy level diagrams
+There will be some energy level diagram figures after this demonstrating where some of these energy level assumptions work.\\
+
+\n Let's briefly review the electronic configurations of some of these ions. O\,I has 8 electrons, so in its ground state it has an electronic configuration of $1s^2\ 2s^2\ 2p^4$. O\,III however, has a configuration of $1s^2\ 2s^2\ 2p^2$, where the outermost electrons are actually in different orbitals (remember Hund's rules!). This $p^2$ configuration disallows the two outermost electrons from having the same quantum numbers ($n,\ \ell,\ m,\ s$). In this case, we know that $n=2$ (the ``2'' in $2p^2$), and $\ell=\pm1$ (the $p$). For electrons, $s = \pm 1/2$. So the total spin can take on values of 0, or 1 and the total orbital angular momemtum can be 0, 1, or 2. We'll often see this configurations labeled via $\mathrm{^{2S+1}L_J}$ where S is the total spin angular momentum, L is the orbital name ($s,\ p,\ d,\ f,$ etc.), and J is the total angular momentum. The available states for O\,II are shown in Table~\ref{tab:oii}
+\begin{table}
+  \centering
+  \begin{tabular}{l l l}
+    $^1\mathrm{D}_{J=2}$ & L = 2 & S = 0\\
+    $^3\mathrm{D}_{J=3,2,1}$ & L = 2 & S = 1 \\
+    $^1\mathrm{P}_{J=1}$ & L = 1 & S = 0\\
+    $^3\mathrm{P}_{J=2,1,0}$ & L = 1 & S = 1\\
+    $^1\mathrm{S}_{J=0}$ & L = 0 & S = 0\\
+    $^3\mathrm{S}_{J=1}$ & L = 0 & S = 1
+  \end{tabular}
+  \caption{Possible electron configurations for O\,II.}
+  \label{tab:oii}
+\end{table}
+  Not all of these states are allowed transitions though, for reasons I still need to record here.
+  % TODO Explain transition rules.
+
+% subsection energy_level_diagrams (end)
 % section collisionally_excited_lines (end)
 \end{document}
 
