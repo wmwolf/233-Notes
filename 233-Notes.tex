@@ -468,10 +468,134 @@ There will be some energy level diagram figures after this demonstrating where s
   \caption{Possible electron configurations for O\,II.}
   \label{tab:oii}
 \end{table}
-  Not all of these states are allowed transitions though, for reasons I still need to record here.
+  Not all of these states are allowed transitions though, for reasons I still
+  need to record here.
   % TODO Explain transition rules.
 
 % subsection energy_level_diagrams (end)
+\subsection{Infrared Line Diagnostics} % (fold)
+\label{sub:infrared_line_diagnostics}
+Transitions between fine-structure levels of $p^2$ and $p^4$ ions are the
+dominant cooling processes in gas at $T = 100-3000$ K. Examples of such lines
+are [CII] 158 $\mu$m and [OIII] 88.36 $\mu$m. Atmospheric water vapor blocks
+these lines in the 25 to 300 $\mu$m range, but airborn observatories can
+observe them, and ALMA is making great headway in observing mm-scale
+radiation.\\
+% TODO fill this out... missed information from the slides.
+
+\n However, note that in the real world (like in \HII regions), the ISM is
+clumpy, so these diagnostics actually only measure the number density of the
+clumps, $n_{e,c}$. The emission measure, however, cares about the average
+electron density: $\mathrm{EM}\sim \avg{n_e^2}\times(\mathrm{length})$. We
+parameterize this clumpiness with a \textbf{volume filling factor} for the
+clumps, $f$, defined by
+\begin{equation}
+  \label{eq:ff:1} \avg{n_e^2}\approx fn_{e,c}^2
+\end{equation}
+Typically we find $f\sim 0.1-0.1$ in nearby \HII regions.
+% subsection infrared_line_diagnostics (end)
+\subsection{Resonance Lines and Selection Rules} % (fold)
+\label{sub:resonance_lines_and_selection_rules}
+Remember that energy transitions are surrounded in square brackets when they are the so-called ``forbidden transitions''. The more run-of-the-mill resonance transitions, or allowed transitions, are those that obey the following rules:
+\begin{enumerate}
+  \item Only 1 electron involved in the transition
+  \item Initial and final states have different parity
+  \item Emitted photon carries 1 unit of angular momentum, so $\Delta L = \pm 1$
+  \item Electron spin does not change
+  \item Change in the total angular momentum of the active electron is $\Delta J = \pm 1$ or $0$, with $J=0\to0$ being forbidden.
+\end{enumerate}
+The statistical weight of any level is $g=2J + 1$.\\
+
+\n In addition to the forbidden lines, which break rule 4, there are the intercombination, or \textbf{semi-forbidden} lines. These are transitions that break any of the other rules. These transitions are about a million times lower than the resonance transitions ($A\sim 10^2-10^3\ \mathrm{s^{-1}}$ compared to $\sim10^8\ \mathrm{s^{-1}}$ for resonance lines). Forbidden lines are several orders of magnitude less prevalent still, as they are magnetic dipole transitions.\\
+
+\n For forbidden or semi-forbidden transitions to be important, we must have very low densities, since higher densities will make collisional processes dominate over these weak transitions. As such, the emitted photons from forbidden transitions are unlikely to be absorbed by another ion, so forbidden line photons usually escape from a nebula and are thus very important coolants. Examples of such transitions are [OIII] 4959, 5007 and [OII] 3726,29
+\subsubsection{Hydrogen Line Series} % (fold)
+\label{ssub:hydrogen_line_series}
+The line transitions in a de-exciting electron (for instance, a recombination electron that came in at high $n$, $\ell$ to form an excited hydrogen atom) often produce a series of lines. Transitions that end at $n=1$ are called the \textbf{Lyman Series}. Transitions from $n=2$ to $n=1$ are Lyman-$\alpha$ transitions, and those from $n=3$ to $n=1$ are Lyan-$\beta$ transitions, etc. Similarly, transitions to the $n=2$ state form the Balmer series (denoted H$\alpha$, H$\beta4$, etc.), and the transitions to $n=3$ form the Paschen series.
+% TODO transition from $n=2, \ell=0$ to $n=1, \ell=0$
+% subsubsection hydrogen_line_series (end)
+% subsection resonance_lines_and_selection_rules (end)
 % section collisionally_excited_lines (end)
+\section{Molecular Spectra} % (fold)
+\label{sec:molecular_spectra}
+\subsubsection*{Suggested Refeferences} % (fold)
+\label{ssub:suggested_refeferences}
+\begin{itemize}
+  \item Draine Chapter 5
+\end{itemize}
+% subsubsection suggested_refeferences (end)
+Molecules present additional complication since rotational and vibrational
+energies become important. We'll first explore rotating molecules.
+\subsection{Rotating Molecules} % (fold)
+\label{sub:rotating_molecules}
+Like nearly all forms of atomic energy, the energies of rotating molecules are
+quantized to energy levels. These rotational energy levels are related tot he
+moments of inertia of the molecules along the various axes of symmetry.
+
+\paragraph{Eaample: Linear Diatomic Molecules} % (fold)
+\label{par:eaample_linear_diatomic_molecules}
+Suppose we have a linear diatomic molecule with characteristic lengthscale $r$
+and reduced mass $\mu$. Then the moment of inertia of this molecule is
+\begin{equation}
+  \label{eq:ldmol:1} I = \mu r^2
+\end{equation}
+And the quantized rotational energy levels are
+\begin{equation}
+  \label{eq:ldmol:2} E = J(J+1)\frac{h^2}{8\pi^2 I}
+\end{equation}
+% TODO Finish this. This blackboard is in the worst position possible
+% paragraph eaample_linear_diatomic_molecules (end)
+% subsection rotating_molecules (end)
+\subsection{Vibrating Molecules} % (fold)
+\label{sub:vibrating_molecules}
+% TODO Again, can't read for shit.
+% subsection vibrating_molecules (end)
+\subsection{Molecular Hydrogen} % (fold)
+\label{sub:molecular_hydrogen}
+H$_2$ does not radiate strongly because rotational transitions require a
+heterogeneous linear molecule like CO. In the H$_2$ molecule, transitions occur
+via electric quadrupole interaction. The least energetic transition is $J=0$ to
+$J=2$. Thus, lifetiems of excited states are much, much longer than for the
+ions (e.g.\ about 1000 years for the $J=2$ level). Hence, the rotational elvels
+are populated by collisions.
+% subsection molecular_hydrogen (end)
+% section molecular_spectra (end)
+\section{Transition Rates} % (fold)
+\label{sec:transition_rates}
+We return now to our two-level atom with two states, 1, and 2, separated by an
+energy gap $E_{12}$. We can characterize the rate of decays from state 2
+through some characteristic $e$-folding time via
+\begin{equation}
+  \label{eq:trans:1} N_2 = N_2(0)e^{-A_{21}t}
+\end{equation}
+Here, $A_{21}$ is proportional to the electric dipole matrix element, or
+\begin{equation}
+  \label{eq:trans:2} A_{21}\propto e^2\norm{\avg{\psi_1\vert\psi_2}}^2
+\end{equation}
+An atom with an electron in state 1 has a probabliity of absorbing a photon
+given by
+\begin{equation}
+  \label{eq:trans:3} p_{12} = B_{12} u(\nu_{12})
+\end{equation}
+where $B_{12}$ is the Einstein absorption coefficient and $u(\nu)$ is the energy density in radiation at a given frequency. We usually derive this energy density from the \textbf{specific intensity}, $I_\nu$ ($I_\lambda$), which has units of energy per area per time per sold angle per frequency (wavelength). The specific intensity is a conserved quantity along a ray of light. To convert this intensity to a flux through some surface, we must integrate this quantity (really, the portion that is normal to the surface) over all incident angles, or
+\begin{equation}
+  \label{eq:trans:4} F_\nu = \int I_\nu\cos\theta\,d\Omega
+\end{equation}
+To get an energy density from the specific intensity (a process we'll discuss later), we use
+\begin{equation}
+  \label{eq:trans:5} u_\nu = \frac{4\pi}{c}I_\nu
+\end{equation}
+Similarly, the probability for stimulated emission to occur is
+\begin{equation}
+  \label{eq:trans:6} p_{21} = B_{21}u(\nu_{12})
+\end{equation}
+where the two Einstein coefficients are related via
+\begin{equation}
+  \label{eq:trans:7} g_1 B_{12} = g_2B_{21}
+\end{equation}
+Using LTE, we can derive the spontaneous emission Einstein coefficient to be
+% TODO get from Draine Ch. 6
+
+% section transition_rates (end)
 \end{document}
 
