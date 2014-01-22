@@ -597,5 +597,160 @@ Using LTE, we can derive the spontaneous emission Einstein coefficient to be
 % TODO get from Draine Ch. 6
 
 % section transition_rates (end)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wednesday, January 22, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Radiative Transfer} % (fold)
+\label{sec:radiative_transfer}
+\textit{Wednesday, January 22, 2014}
+\subsection{Basic Definitions} % (fold)
+\label{sub:basic_definitions}
+\textbf{Energy flux} is the amount of radiative energy that passing through some surface per unit area per unit time. This is in contrast to the \textbf{specific intensity}, which is the amount of energy per unit time per unit area per unit solid angle per unit frequency (or sometimes per unit wavelength). Then the total energy through some bundle of rays is given by
+\begin{equation}
+  \label{eq:rt:1} dE = I_\nu\,dA\,dt\,d\Omega\,d\nu
+\end{equation}
+There are several quantities related to the specific intensity
+\begin{enumerate}
+  \item[(0)] \textbf{Mean Intensity}, defined by
+  \begin{equation}
+    \label{eq:rt:2} J_\nu \equiv \frac{1}{4\pi}\int I_\nu\,d\Omega
+  \end{equation}
+  which is just the specific unit averaged over all solid angles. Note that the differential of solid angle is
+  \begin{equation}
+    \label{eq:rt:3} d\Omega = \sin\theta\,d\theta\,d\phi
+  \end{equation}
+  This can be thought of as the zeroth moment of the specific intensity.
+  \item[(1)] Correspondingly, the first moment of the specific intensity is the \textbf{specific flux}, given by
+  \begin{equation}
+    \label{eq:rt:4} F_\nu \equiv \int I_\nu \cos\theta\,d\Omega
+  \end{equation}
+  This is essentially the ``energy moment'' of the specific intensity.
+  \item[(2)] While the first moment was an energy flux, the second moment is the momentum/pressure moment. Recalling that for a photon, $p = E/c$, we can get a momentum flux via
+  \begin{equation}
+    \label{eq:rt:5} P_\nu = \frac{1}{c}\int I_\nu \cos^2\theta\,d\Omega
+  \end{equation}
+  This is more familiarly known as the \textbf{radiation pressure}.
+\end{enumerate}
+As an example, consider a spaceship some distance $r$ from a (blackbody) star of radius $R$ and effective temperature $T$. We'd like to know what flux the spaceship observes from the star. Naively we may use the basic equation \eqref{eq:rt:4} to start:
+% TODO Add diagram
+\begin{align}
+  \label{eq:rt:6} F_\nu &= \int B_\nu(T)\cos\theta\sin\theta\,d\theta\,d\phi\\
+  \label{eq:rt:7} &= B_\nu(T) \int_0^{2\pi} d\phi\int_0^{\theta_{\mathrm{max}}} \cos\theta\sin\theta\,d\theta\\
+  \label{eq:rt:8} &= \pi B_\nu(T)\left(\frac{R}{r}\right)^2
+\end{align}
+where $\theta_{\mathrm{max}}$ is half the angular diamter of the star as seen from the spaceship, $\theta_{\mathrm{max}} = \sin^{-1}(R/r)$.
+% subsection basic_definitions (end)
+\subsection{Equation of Radiative Transfer} % (fold)
+\label{sub:equation_of_radiative_transfer}
+% TODO Add diagram
+Consider a source of radiation shining through some medium to an observer. The change in the specific intensity, in its most general, is given by
+\begin{equation}
+  \label{eq:rt:9} dI_\nu = -\kappa_\nu I_\nu\,ds + j_\nu\,ds
+\end{equation}
+Where $j_\nu$ is the \textbf{emissivity}, which tells us the rate of emission of radiation of that frequency per unit volume per unit solid angle, or
+\begin{equation}
+  \label{eq:rt:10} j_\nu \equiv \frac{1}{4\pi} n_u A_{u\ell}h\nu
+\end{equation}
+In addition to the emissivity, we must also consider the \textbf{attenuation}, $\kappa_\nu$, which measures the rate at which radiation is absorbed, which is obviously proportional to the incident radiation, $I_\nu$. The attenuation has an absorption term and an emission term:
+\begin{align}
+  \label{eq:rt:11} \kappa_\nu &= n_\ell\sigma_{\ell u}(\nu) - n_u\sigma_{u\ell}(\nu)\\
+  \label{eq:rt:12} &= n_\ell \sigma_{\ell u}(\nu)\left[1 - \frac{n_u \sigma_{u \ell}}{n_\ell \sigma_{\ell u}}\right]\\
+  \label{eq:rt:13} &= n_\ell \sigma_{\ell u}(\nu)\left[1 - \frac{n_u/n_\ell}{g_u/g_{\ell}}\right]
+\end{align}
+where in the last step we've used detailed balance to eliminate cross sections in favor of statistical weights. Now in LTE, the number densities of states are given by a Boltzmann distribution:
+\begin{equation}
+  \label{eq:rt:14} \frac{n_u}{n_\ell} = \frac{g_u}{g_\ell} e^{-h\nu/kT}
+\end{equation}
+So for sufficiently high frequencies ($h\nu \gg kT$), the second term in \eqref{eq:rt:13} can be neglected, giving us simply
+\begin{equation}
+  \label{eq:rt:15} \kappa_\nu \approx n_\ell \sigma_{\ell u}
+\end{equation}
+This approximation is excellent for the vast majority of astrophysical applications. A notable exception is masers, where stimulated emission is important (note that these are at low wavelengths; microwaves in fact).
+\subsubsection{Example: Lyman Alpha Forest from AGNs} % (fold)
+\label{ssub:example_lyman_alpha_forest_from_agns}
+% TODO add diagram
+Quasars at $z\approx 3$ emit strong lymnan alpha radiation that travels through a vast expanse of IGM. As it goes through, lyman alpha opacity robs the incident spectrum of lyman alpha radiation. The transition back to the ground state is a permitted transition, so it happens fast and emits photons isotropically. Thus, very few of the absorbed photons are re-emiited in the original direction. Assuming the emissivity vainishes along this path (no spontaneous production of Lyman alpha photons), we get
+\begin{equation}
+  \label{eq:rt:16} \frac{dI_\nu}{I_\nu} = -\kappa_\nu\,ds \qquad \Rightarrow \qquad \left. \ln I_\nu\right\vert_s^{\mathrm{obs}} = -\int_s^{\mathrm{obs}}\kappa_\nu\,ds
+\end{equation}
+which inspires us to define the \textbf{optical depth}, a dimensionless parameter characterizing the relative opaqueness of a path, via
+\begin{equation}
+  \label{eq:rt:17} \tau_\nu = \int ds\, \kappa_\nu
+\end{equation}
+this gives us another way to express \eqref{eq:rt:16}:
+\begin{equation}
+  \label{eq:rt:18} I_\nu = I_\nu(s) e^{-\tau_\nu(\mathrm{obs})}
+\end{equation}
+% subsubsection example_lyman_alpha_forest_from_agns (end)
+\subsubsection{Optical Depth} % (fold)
+\label{ssub:optical_depth}
+Thus there are two limiting cases, the optically thin case, where $\tau \ll 1$ and the optically thick $\tau \gg 1$ case. A source viewed through an optically thin medium will suffer very little attenuation, whereas a source viewed through an optically thick medium will be almost totally attenuated.\\
+
+\n With the optical depth defined, we can recast the equation of radiative transfer neatly in terms of it:
+\begin{equation}
+  \label{eq:rt:19} dI_\nu + I_\nu d\tau_\nu = \frac{j_\nu}{\kappa_\nu}d\tau_\nu
+\end{equation}
+to make things work out nicely, we multiply both sides of \eqref{eq:rt:19} by the integrating factor $\exp\left(\int_{\mathrm{obs}}^\ell\kappa_\nu\,ds\right)$ to get
+\begin{equation}
+  \label{eq:rt:20} \int_s^{\mathrm{obs}}d\left[e^{\int_{\mathrm{obs}}^\ell \kappa_\nu ds}I_\nu\right] = \int_0^{\tau_\nu} \frac{j_\nu}{\kappa_\nu} e^{\int_{\mathrm{obs}}^\ell \kappa_\nu ds}d\tau
+\end{equation}
+With some more jiggery-pokery, we get
+\begin{equation}
+  \label{eq:rt:21} \boxed{I_\nu(\mathrm{obs}) = I_\nu(s)e^{-\tau_\nu} + \int_0^{\tau_\nu} \frac{j_\nu}{\kappa_\nu} e^{-(\tau_\nu - \tau_\nu')}\ d\tau_\nu'}
+\end{equation}
+The first term just give the attenuated original specific intensity, and the second term adds in the sources along the path, each attenuated from its source position to the observer.\\
+
+\n Now if the cloud in the medium is in LTE, where the photon emission rate is equal to the photon absorption rate, we have the emissivity of
+\begin{equation}
+  \label{eq:rt:22} j_\nu \equiv \kappa_\nu B_\nu
+\end{equation}
+If we are at a uniform tepmerature, $T$, the equation of radiative transfer becomes
+\begin{equation}
+  \label{eq:rt:23} I_\nu(\mathrm{obs}) = I_\nu(s)e^{-\tau_\nu} + B_\nu(T)\int_0^{\tau_\nu}e^{-(\tau_\nu - \tau_\nu')}d\tau'
+\end{equation}
+Now this is an integral we can do, so this simplifies to
+\begin{equation}
+  \label{eq:rt:24} \boxed{I_\nu(\mathrm{obs}) = I_\nu(s) e^{-\tau_\nu} + B_\nu(T) \left(1- e^{-\tau_\nu}\right)}
+\end{equation}
+If the very diffuse limit, $\tau_\nu \ll 1$, we may take first term expansions of the exponentials to get simply
+\begin{equation}
+  \label{eq:rt:25} I_\nu(\mathrm{obs}) = I_\nu(s)(1-\tau_\nu)
+\end{equation}
+And for the very thick cloud, where $\tau_\nu \gg 1$, the exponentials vanish, giving simply
+\begin{equation}
+  \label{eq:rt:26} I_\nu(\mathrm{obs}) = B_\nu(T)
+\end{equation}
+% subsubsection optical_depth (end)
+\subsubsection{Radio Astronomy} % (fold)
+\label{ssub:radio_astronomy}
+For radio astronomy, we are typically in the regime where $h\nu\ll kT$, so stimulated emission is important. Radio astronomers often speak of a \textbf{brightness temperature}, which is the temperature a source would need to have the observed brightness at a particular frequency (this temperature need not be the same for each frequency). Inverting the Planck function, we can get an analytic expression for the brightness temperature:
+\begin{equation}
+  \label{eq: rt:26} T_B(\nu) = \frac{h\nu}{k} \ln\left[\frac{2h\nu^3}{c^2 I_\nu} + 1\right]{-1}
+\end{equation}
+Radio astronomers will also use an antennae temperature via
+% TODO Explain this better
+\begin{equation}
+  \label{eq:rt:27} \boxed{T_A \equiv \frac{c^2}{2k\nu^2}I_\nu}
+\end{equation}
+The transfer equation becomes
+\begin{equation}
+  \label{eq:rt:28} \frac{c^2}{2\nu^2k}I_\nu = \frac{c^2}{2\nu^2 k}I_\nu(s) + \frac{B_\nu c^2}{2\nu^2k} \left(1-e^{-\tau_\nu}\right)
+\end{equation}
+or simply
+\begin{equation}
+  \label{eq:rt:29} T_A(\mathrm{obs}) = T_A(s) + T_c\left(1-e^{-\tau_\nu}\right)
+\end{equation}
+In the limit where the antennae temperature of the source is much greater than the cloud temperature and the cloud is optically thin, \eqref{eq:rt:29} simplifies to
+\begin{equation}
+  \label{eq:rt:30} T_A = T_{A,s}(1-\tau_\nu) + T_c\left(1-(1-\tau_\nu)\right) = T_{A,s} - (T_{A,s} - T_c)\tau_\nu
+\end{equation}
+In the optically thick limit, we just get
+\begin{equation}
+  \label{eq:rt:31} T_A(\mathrm{obs}) = T_c
+\end{equation}
+% subsubsection radio_astronomy (end)
+% subsection equation_of_radiative_transfer (end)
+
+% section radiative_transfer (end)
 \end{document}
 
