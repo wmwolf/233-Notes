@@ -904,5 +904,73 @@ For a Gaussian $\phi(\nu)$, we get
 % subsubsection 21_cm_line (end)
 % subsection resonance_line_transfer (end)
 % section radiative_transfer (end)
+\section{Additional Microphysics} % (fold)
+\label{sec:additional_microphysics}
+\subsection{Emission and Absorption by a Thermal Plasma} % (fold)
+\label{sub:emission_and_absorption_by_a_thermal_plasma}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MONDAY, FEBRUARY 3, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textit{Monday, February 3, 2014}\\
+
+\n Suppose we have a thermal (i.e. Maxwellian) plasma at temperature $T\sim 8000\ \mathrm{K}$. The continuum spectrum of such a plasma is \emph{not} simply a blackbody since such a plasma is not necessarily optically thick. Rather, a collection of sources of continuum sources make a rich spectrum. Such sources include recombination (free electrons recombine with ions, giving off an ionization potential plus their kinetic energy into a photon), the two-photon continuum, where an electron undergoes a forbidden transition by giving off two photons that preserve spin properly but whose energies add up to the difference in potential. We'll discuss these processes in more detail now.\\
+
+\n \textbf{Bound-bound} transitions are those where an electron starts being bound and ends being bound. One such example is cooling via [C\,II] 158 $\mu$m, which is cooling via collisional excitation. The actual volumetric cooling rate is simply given by
+\begin{equation}
+  \label{eq:bbound:1} \frac{\mathrm{energy\ radiated}}{(\mathrm{time})(\mathrm{volume})} = n_{\mathrm{C^+}}n_{\mathrm{H}} h\nu \alpha_{12} = n_{\mathrm{C^+}}n_{\mathrm{H}}(8.1\times 10^{-24}\,\mathrm{erg\ s^{-1}\ cm^{-3}})
+\end{equation}
+where we can look up the recombination rate,
+\begin{equation}
+  \label{eq:bbound:2} \alpha_{21}(\mathrm{H-C^+})=8\times 10^{-10}\ \mathrm{cm^3\ s^{-1}}
+\end{equation}
+and by detailed balance,
+\begin{equation}
+  \label{eq:bbound:3} \alpha_{12} = \alpha_{21} \frac{g_2}{g_1}e^{-92\ \mathrm{K}/T}
+\end{equation}
+If we assume that hydrogen is mostly neutral and carbon is mostly singly ionized and use typical abundances, we can scale this cooling rate to just the hydrogen number density:
+\begin{equation}
+  \label{eq:bbound:3} \cdots = n_{\mathrm{H}}^2(3.24\times 10^{-27}\ \mathrm{erg\ s^{-1}\ cm^{-3}})
+\end{equation}
+In \HI regions, this is a dominant source of cooling.\\
+% TODO add other types of cooling
+
+\n \textbf{Free-Free Emission and Absorption}
+For free-free radition, when two charged particles scatter and give off a photon, the power radiated per unit volume scales as
+\begin{equation}
+  \label{eq:ffree:1} P\propto T^{1/2} Z_i^2 n_i n_e
+\end{equation}
+most of this power is near $h\nu\sim kT$. The radio and microwave free-free spectrum is almost flat, declining with increasing frequency as $\nu^{-0.121}$. On the absorption side, the attenuation coefficient follows from Kirchhoff's law: $\kappa_\nu = j_\nu/B_\nu(T)$. This attenuation is very strong at low frequencies, but negligible in the ISM for $\nu > 10$ GHz. \HII regions can be optically thick at $\nu < 1$ GHz.\\
+
+\n \textbf{Bound-free emission}, or radiative recombination, is the process where an ion recaptures an electron, liberating a photon with energy equal to the ionization potential plus the kinetic energy of the electron. The lowest-energy electrons are more likely to be captured by this process, and the rate is thus dependent on the temperature of the gas. In this process, the ion captures the electron, but the new less-ionized ion is probably still in an excited state. This state will eventually decay to the ground state, emitting one or more photons on the way down. The first photon contributes to the recombination continuum, and the subsequent decays power the recombination lines. Thus, bound-free processes ultimately give rise to strong continuum \emph{and} line emission that depends on the atomic physics of the ion in question.\\
+
+\n \textbf{Photoionization} is the inverse process of radiative recombination, where a bound electron absorbs a photon and escapes its potential well. For photoionizing an electron, there is a well-known functional form of the photoionization cross section:
+\begin{equation}
+  \label{eq:photoion:1} \sigma(\nu) \approx \sigma_0(Z)\nu^{-3};\qquad \sigma_0(Z) = 6.304\times 10^{-18}Z^{-2}\ \mathrm{cm^{-2}}
+\end{equation}
+This is only valid for hydrogenic (single electron) ions. It gets more complicated with 3 or more electrons because the resulting ion can be left in a variety of states. The absorption edge is at the minimum photon energy for photon energy for photoionization from a shell. That is, there is a strong edge for hydrogen at $h\nu = 13.6\ \mathrm{eV}$ below which the cross section vanishes (these photons cannot photoionize the electron). Despite the low abundances present, this can dominate at high energies.\\
+
+\n We can relate the cross section for photoionization from a given level to the cross section for recombination to that same level via the Milne Relation. For Hydrogen, we have
+\begin{align}
+  \label{eq:photoion:2} \sigma &= 6.3042\times 10^{-18}\ \mathrm{cm^2}\ \left(\frac{\nu}{\nu_0}\right)^{-3.5}\\
+  \label{eq:photoion:3} \alpha &= 4.18\times 10^{-13}\left(\frac{T}{10^4\ \mathrm{K}}\right)^{-0.72}\ \mathrm{cm^3\ s^{-1}}
+\end{align}
+  \textbf{X-Ray Fluorescence} is when one electron drops down (from the L shell) to fill the vacancey (K shell), so the atom emits a photon (Ka). Similarly, Auger ionization is when one electron drops down to fill the hole left by X-Ray ionization from the K shell. A second electron is promoted to an excited (and unbound) level. This looks like
+  \begin{equation}
+    \label{eq:x-ray} X + h\nu \to (X^+)^* + e^- \to X^{+n} + ne^- \qquad (n \geq 2)
+  \end{equation}
+  Thus, two higher-energy electrons are produced. The inverse of this process is called \textbf{di-electronic recombination}. Di-electronic recombination is important in very high-temperature plasmas. When it is important, it often dominates over regular radiative recombination. The electron rarely has enough energy at low temperature to reproduce a doubly excited state. However Mg\,II and C\,III are exceptions in which the dielectronic recombination rate is significant at $10^4\ \mathrm{K}$. Additiaonlly, this can be important at low temperatures if one of the excited states is a fine-structure state, like C\,II $\to$ C\,I and others\\
+  % TODO missed a bullet point here
+
+  \n \textbf{Collisional ionization} is very much like the collisional excitation we've talked about before, but enough energy is transferred to fully ionize an electron into the free continuum. There are other processes we haven't covered like three-body processes, charge-exchange, cosmic ray ionization, dissociateive recombination, and neutralization by grains.
+
+% subsection emission_and_absorption_by_a_thermal_plasma (end)
+\subsection{Collisional Ionization Equilibrium} % (fold)
+\label{sub:collisional_ionization_equilibrium}
+  In a state of collisional ionization equilibrium, the stages of ionization are coupled by the rates for collisional ionization, recombination, and\ldots
+  % TODO missed a ton here
+  
+  \n All this information can be combined to get a colling function, $Q(n_e, T, Z)=\Lambda n_e n$, which describes the total energy lost by a plasma per unit volume per unit time. 
+% subsection collisional_ionization_equilibrium (end)
+% section additional_microphysics (end)
 \end{document}
 
