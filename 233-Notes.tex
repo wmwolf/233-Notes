@@ -972,5 +972,118 @@ This is only valid for hydrogenic (single electron) ions. It gets more complicat
   \n All this information can be combined to get a colling function, $Q(n_e, T, Z)=\Lambda n_e n$, which describes the total energy lost by a plasma per unit volume per unit time. 
 % subsection collisional_ionization_equilibrium (end)
 % section additional_microphysics (end)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wednesday, February 5, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{H II Regions} % (fold)
+\label{sec:h,ii_regions}
+\textit{Wednesday, February 5, 2014}
+\subsection{Thermal Equilibrium} % (fold)
+\label{sub:thermal_equilibrium}
+In a region of gas around a bright star, a pocket of ionized hydrgen can form, driven by the photoionizing radiation from the star. This region is called an \textbf{H\,II Region}. These are usually in thermal equilibrium, where the heating rate is equal to the cooling rate. Heating sources include photoionization from the star, cosmic rays, and collisional de-excitation. The important cooling sources are recombination, free-free processes, and collisional excitation. If the gas is in \textbf{ionization equilibrium}, the photoionization and recombination rates are equal as well. That is, the ionization fraction of a given species is constant in time. This means that these two heating/cooling rates are also equal.\\
+
+\n The mean energy of a photo-electron is simply
+\begin{equation}
+  \label{eq:h2:1} \avg{E_{\mathrm{pe}}} = \frac{1}{2}m_e\avg{v_{\mathrm{pe}}^2}
+\end{equation}
+However the mean energy of recombining electrons,
+\begin{equation}
+  \label{eq:h2:2} \avg{E_{\mathrm{recomb}}} = \frac{1}{2}m_e\avg{v_{\mathrm{recomb}}^2}
+\end{equation}
+is always lower. Thus, these rates being equal actually introduces a net heating process:
+\begin{equation}
+  \label{eq:h2:3} \Delta E = \frac{1}{2}m_e\left(\avg{v_{\mathrm{pe}}^2} - \avg{v_{\mathrm{recomb}}^2}\right)
+\end{equation}
+This heat source must be balanced by some combination of free-free emission and collisional excitation. 
+
+\subsubsection{Photoionization Heating} % (fold)
+\label{sub:photoionization_heating}
+The energy input by photoionization is determined from the stellar spectrum, $J_\nu$:
+\begin{equation}
+  \label{eq:h2:4}\textrm{Heating Rate} = \int_{\nu_0}^\infty \frac{4\pi J_\nu}{h\nu}\sigma_{\mathrm{ph}}(\nu)n_{\mathrm{H}}h(\nu - \nu_0)\,d\nu
+\end{equation}
+where $\nu_0$ is the ionization potential of Hydrogen (13.6 eV/$h$). The ionization rate is just this without the excess energy term:
+\begin{equation}
+  \label{eq:h2:5}\textrm{Ionization Rate} = \int_{\nu_0}^\infty \frac{4\pi J_\nu}{h\nu}\sigma_{\mathrm{ph}}(\nu)n_{\mathrm{H}}\,d\nu
+\end{equation}
+The average photoelectron energy is just the ratio of these two quantities:
+\begin{equation}
+  \label{eq:h2:6}\textrm{Mean Photoelectron Energy} = \frac{\textrm{Heating Rate}}{\textrm{Ionization Rate}}
+\end{equation}
+If we assume a blackbody spectrum,
+\begin{equation}
+  \label{eq:h2:7} 4\pi J_\nu = \pi B_\nu\propto \frac{\nu^3}{e^{h\nu/kT} - 1} \propto \nu^3 e^{-h\nu/kT}
+\end{equation}
+where we are assuming that the ionization frequencies are on the Rayleigh Jeans tail. The ``energy'' of the typical photosphere photon is
+\begin{equation}
+  \label{eq:h2:8} kT_{\mathrm{eff}} = 2.6\ \mathrm{eV}\ \frac{T_{\mathrm{eff}}}{30\,000\ \mathrm{K}}
+\end{equation}
+Carrying out all the math (not shown here), we find an approximate form for the average photoelectron energy to be
+\begin{equation}
+  \label{eq:h2:9} E_{\mathrm{pe}}=\avg{\frac{3}{2}kT_i}\approx kT_{\mathrm{eff}}\left[1-\frac{kT_{\mathrm{eff}}}{h\nu_0}\right]
+\end{equation}
+This is roughly linear at low temperatures since the second term is negligible. However, when $kT_{\mathrm{eff}}$ becomes comparable to $h\nu_0$, at around 30\ 000 K, the slope begins to taper off. That is, there is a decreasing return on simply cranking up the temeprature of the star.\\
+
+\n For an optically thick (at line edge) region, the low energy region of the stellar spectrum (near $h\nu_0$) is effectively removed by the inner regions of the cloud. Thus, at larger distances, there are fewer ionizations (both due to the exponential die-off of higher energy photons in the spectrum and due to the $\nu^{-3}$ dependence of the ionization cross section). However, those ionizations that do happen are at higher energy, so the man photo-electron energy is actually higher at larger distances from the source.
+% subsection photoionization_heating (end)
+\subsubsection{Cooling By Recombination} % (fold)
+\label{sub:cooling_by_recombination}
+The cooling by recombination is given roughly by
+\begin{equation}
+  \label{eq:h2:10} L_{\mathrm{R}} \propto \frac{1}{2}\avg{v_{\mathrm{R}}^2} n_pn_e \alpha
+\end{equation}
+where, remember, $\alpha$ has dimensions of $(\mathrm{volume}) (\mathrm{time})^{-1}$. $\alpha$ is actually a more complicated term than we might expect:
+\begin{equation}
+  \label{eq:h2:11} \alpha = \sum_n\sum_L\alpha_{\mathrm{n,L}}
+\end{equation}
+Where the sums are over the transitions from the various energy levels $n$ and angular momentum states $L$. In general, $\alpha$ scales with the inverse square root of temperature,
+\begin{equation}
+  \label{eq:h2:12} \alpha\propto T_e^{-1/2}
+\end{equation}
+and so (due to the thermal energy term in the cooling rate), the cooling rate is proportional to the square root of temperature:
+\begin{equation}
+  \label{eq:hw:13} L_{\mathrm{R}} \propto \sqrt{T_e}
+\end{equation}
+Thus hotter gasses cool faster via recombination. A more complete, albeit unclear statement of the cooling rate due to recombination is 
+\begin{equation}
+  \label{eq:h2:14} L_{\mathrm{R}}(\mathrm{H}) = n_e n_p kT_e \beta_{B}(\mathrm{H}^0, T)
+\end{equation}
+where $\beta$ is now a recombination coefficient that we can look up as a function of the ion in question and the electron temperature. The subscript $B$ refers to \textbf{Case B Recombination}. In fact, the coefficent $\beta_B$ is more precisely given by
+\begin{equation}
+  \label{eq:h2:15} \beta_B = \sum_{n=2}^{\infty}\sum_{L=0}^{n-1}\beta_{nL(\mathrm{H}^0, T)}
+\end{equation}
+This means we can ignore all recombinatiosn directly to the ground state (the first sum excludes $n=1$). The reason we can make this assumption is that in an optically thick cloud, the resulting Lyman continuum photon from a direct recombination will be absorbed so fast so as to effectively cancel out the recombination/ionization event (the mean free path in the standard ISM is less than a parsec). This approximation is known as the \textbf{On The Spot} approximation (OTS). If the gas is \emph{not} optically thick, one must use case A recombination approximations.
+% subsection cooling_by_recombination (end)
+\subsubsection{Collisional Cooling} % (fold)
+\label{ssub:collisional_cooling}
+Thus far we have only considered Hydrogen's contriubtion. However, heavier elements like C, N, O, etc.\ are important coolants despite their relatively low abundances. Recall that the collisional cross section as a function of relative velocity for a given transition is
+\begin{equation}
+  \label{eq:h2:16} \sigma_{12}(v) = \frac{\pi \hbar^2}{m^2v^2}\frac{\Omega(1,2)}{\omega_1}
+\end{equation}
+And the cooling rate due to collisional excitation is then (in the low density limit)
+\begin{equation}
+  \label{eq:h2:17}L_c= n_e n_1 h\nu_{12}q_{12}
+\end{equation}
+where $q_{12}$ is ascertained from $q_{21}$ and detailed balance:
+\begin{equation}
+  \label{eq:h2:18} q_{21} = \int_0^\infty \sigma_{21}(v)f(v)v\,dv = \frac{8.6\times 10^{-6}}{\sqrt{T}}\frac{\Omega(1,2)}{\omega_{2}}
+\end{equation}
+And so
+\begin{equation}
+  \label{eq:h2:19} q_{12} = q_{21} \frac{\omega_2}{\omega_1} e^{-\Delta E / kT}
+\end{equation}
+In the high density limit, 
+\begin{equation}
+  \label{eq:h2:20} q_{12}n_1n_e = n_2 A_{21} + n_2 n_e q_{21} \approx
+\end{equation}
+And so the cooling rate here is given by
+\begin{equation}
+  \label{eq:h2:21} L_c=n_2 h\nu_{21}A_{21} = n_1 n_e q_{12} h\nu_{12} \left[ \frac{1}{1 + \frac{q_{21}n_e}{A_{21}}}\right]
+\end{equation}
+From the recombination and collisional cooling rates, we can get a cooling rate. Then by matching the summed cooling rate to our heating rate due to photoionization (and possibly collisional de-excitation), we can identify an equilibrium temperature for the region.
+% subsubsection collisional_cooling (end)
+
+% subsection thermal_equilibrium (end)
+% section h,ii_regions (end)
 \end{document}
 
