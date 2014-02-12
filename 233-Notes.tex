@@ -1542,15 +1542,15 @@ the corrresponding Str\"omgren radii.\\
 \n This concept can be extended to galactic scales by summing up the
 contribution from all massive stars. For a galaxy with a star-forming rate of 1
 $M_\odot\ \mathrm{yr}^{-1}$, the galactic $Q$ value is $1.08\times 10^{53}\
-\mathrm{s^{-1}}$. We can then calculate the corresponding Str\"ombren radii for
+\mathrm{s^{-1}}$. We can then calculate the corresponding Str\"omgren radii for
 galaxies.\\
 
 \n As a more concrete example, consider a blackbody spectrum for our ionizing
 source. Skipping the integrals, the Str\"omgren radius is simply
 \begin{equation}
-  \label{eq:strom:20} 78.2\ \mathrm{pc}\ \left(\frac{R_*}{R_\odot}\right)^{2/3}
-  \left(\frac{n_{\mathrm{H^0}}}{1\ \mathrm{cm^{-3}}}\right)^{2/3}
-  \frac{F_1(x_1)}{x_1}
+  \label{eq:strom:20} R_{\mathrm{S}} \approx 78.2\ \mathrm{pc}\
+  \left(\frac{R_*}{R_\odot}\right)^{2/3} \left(\frac{n_{\mathrm{H^0}}}{1\
+  \mathrm{cm^{-3}}}\right)^{2/3} \frac{F_1(x_1)}{x_1}
 \end{equation}
 Where
 \begin{equation}
@@ -1559,6 +1559,55 @@ Where
 \end{equation}
 where $x_1$ is $x(\nu_0)$.
 % subsubsection the_str"omgren_radius (end)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WEDNESDAY, FEBRUARY 12, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Ionization Parameter} % (fold)
+\label{ssub:ionization_parameter}
+\textit{Wednesday, February 12, 2014}\\
+
+\n We should take a moment to define a commonly-used quantity in astrophysics,
+the \textbf{ionization parameter}. Going back to ionization equilibrium, we
+found the condition for recombinations to balance with photoionization to be
+\begin{equation}
+  \label{eq:ip:1} \alpha n_e n_p = \int \frac{J_\nu}{h\nu}\sigma n_{\mathrm{H}}
+  \,d\nu
+\end{equation}
+Now if we assume that we are in pure hydrogen, we denote the parameter $\chi$ 
+via
+\begin{equation}
+  \label{eq:ip:2} n_p = n_e = \chi n_{\mathrm{H}}
+\end{equation}
+where $n_{\mathrm{H}}$ is the total number density of hydrogen in any ionization
+state. Then the number density of neutral hydrogen atoms is simply
+\begin{equation}
+  \label{eq:ip:3} n_{\mathrm{H^0}} = (1-\chi)n_{\mathrm{H}}
+\end{equation}
+So now we write the condition for photoionization balance in terms of this this
+new ionization parameter, $S$, which will have units of ionizations per unit
+area per unit time:
+\begin{equation}
+  \label{eq:ip:4} \alpha \chi^2 n_{\mathrm{H}}^2 \approx \sigma(1-\chi) 
+  n_{\mathrm{H}} S
+\end{equation}
+Or, moving the ionization fraction $\chi$ to one side, we get
+\begin{equation}
+  \label{eq:ip:5} \frac{\chi^2}{1-\chi} =
+   \frac{S}{n_{\mathrm{H}}}\frac{\sigma}{\alpha}
+\end{equation}
+We can get some more physical intuition from this formulation, if we note that
+$q = S/n_{\mathrm{H}}$ has units of velocity. $q$ is thus the velocity of the 
+ionization front, if the star were to suddenly ``turn on'' in the middle of a 
+totally neutral cloud. Often you will see the \textbf{dimensionless ionization
+parameter}, denoted by $U$, which is simply
+\begin{equation}
+  \label{eq:ip:6} U \equiv \frac{q}{c} = \frac{Q}{4\pi R_{\mathrm{S}}^2
+  n_{\mathrm{H}}c}
+\end{equation}
+Typical values for $U$ are in the range of $10^{-6}-10^{-1}$, though it is often
+used in a steady-state situation.
+% ssubsection ionization_parameter (end)
 \subsubsection{Effects of Helium} % (fold)
 \label{ssub:effects_of_helium}
 So far we have only considered pure hydrogen, but really we must \emph{at least}
@@ -1567,9 +1616,93 @@ hydrogen, we'll need to start caring about which photons ionize helium and which
 ionize hydrogen. We can still use the ``on the spot'' approximation for
 recombinations to the ground state of helium. However, even recombinations to
 some \emph{excited states} will also be immediately absorbed. The physics is
-essentially the same, but the accounting is slightly more convoluted.
+essentially the same, but the accounting is slightly more convoluted. Let's get
+into it.\\
+
+\n Recall that the first ionization of Helium requires a 24.6 eV photon, and the
+second ionization potential is 54.4 eV. This second ionization is only relevant
+for the most massive stars (and bright hot white dwarfs!). Also of importance is
+the photoionization cross section for helium. At higher energies, helium has a 
+higher cross section than hydrogen, and for the first ionization, the cross
+section scales as $\nu^{-2}$ rather than $\nu^{-3}$, which is a result of this
+not being a hydrogenic ion.\\
+
+\n So the fate of a 24.6 eV photon depends both on the ratios of the number
+densities of neutral hydrogen/helium and the ratios of the cross sections. In a
+cosmic composition, there are about 10 hydrogen atoms for every helium atom,
+but the relative ionization of hydrogen may be high enough to effectively
+reduce this ratio. Clearly, the incident spectrum will affect the balance
+between helium and hydrogen ionizations.\\
+
+\n As a result of this competeition for 24.6 eV photons the ``on the spot'' 
+approximation for helium recombination becomes coupled with the hydrogen since
+it is unclear which type of atom will be ionized by the recombination photon.
+Schematically, we must have
+\begin{multline}
+  \label{eq:helium:1} R(\textrm{H Ionization by Star}) + R(\textrm{H ionization
+  by He recombination}) + \\R(\textrm{H Ionization by He bound-bound}) =
+  R(\textrm{Rate of H Recombination to }n\geq 2)
+\end{multline}
+where the various $R$'s are rates. In terms of a more explicit equation, this 
+looks like
+\begin{equation}
+  \label{eq:helium:2} \frac{R_*^2}{R^2} \int_{\nu_{0,\mathrm{H}}}^\infty 
+  \frac{\pi B_\nu(R_*)}{h\nu} \sigma_{\mathrm{H}^0}(\nu) n_{\mathrm{H}}
+  e^{-\tau_\nu}\,d\nu + y \alpha_{\mathrm{He}}(1s) n_{\mathrm{He}^+}n_e +
+  p \alpha_{\mathrm{B}}(\mathrm{He})n_{\mathrm{He^+}}n_e = \alpha_{\mathrm{B}}
+  n_e n_{\mathrm{H^+}} 
+\end{equation}
+where $y$ is the fraction of photons from helium recombinations to the ground
+state that ionize hydrogen:
+\begin{equation}
+  \label{eq:helium:3} y \equiv \frac{\sigma_0(\mathrm{H})n_{\mathrm{H^0}}}{
+  \sigma_0(\mathrm{H})n_{\mathrm{H^0}} + \sigma_0(\mathrm{He})n_{\mathrm{He^0}}}
+\end{equation}
+and $p$ is the fraction of helium recombinations that produce bound-bound
+photons that can ionize hydrogen. The analagous equation for helium is
+\begin{equation}
+  \label{eq:helium:4} \frac{R_*^2}{R^2} \int_{\nu_{0,\mathrm{He}}}^\infty
+  \frac{\pi B_\nu(R_*)}{h\nu} \sigma_{\mathrm{He}}(\nu) n_{\mathrm{He^0}}
+  e^{-\tau_\nu(\mathrm{He})}\,d\nu + (1-y) \alpha_{\mathrm{He}}(1s)
+  n_{\mathrm{He}^+}n_e + = \alpha_{\mathrm{A}}(\mathrm{He}) n_e
+  n_{\mathrm{He^+}}
+\end{equation}
+We should also note tha the optical depth changes with distances as
+\begin{equation}
+  \label{eq:helium:5} \frac{d\tau_\nu}{dR} = \begin{cases}
+  n_{\mathrm{H}\sigma_{\mathrm{H}}}, &\text{ if }13.6\leq h\nu < 24.6\
+  \mathrm{eV}\\ n_{\mathrm{H}\sigma_{\mathrm{H}}} +
+  n_{\mathrm{He}\sigma_{\mathrm{He}}}, &\text{ if } h\nu \geq 24.6\ \mathrm{eV}
+  \end{cases}
+\end{equation}
+Thus far we have totally ignored collisional processes. In fact, collisons 
+between helium and protons can cause electrons to jump between excited states, 
+which can move electrons to positions favorable to resonance transitions. So,
+we should extend this treatment to high- and low-density limits.\\
+
+\n In the low density limit, approximately 3/4 of non-ground-state helium
+recombinations leave the atom in a triplet state, which radiatively decay to
+the $2 {}^3\mathrm{S}$ state and subsequently to the $1 {}^1\mathrm{S}$ state,
+which radiates a $\sim 20$ eV photon. About a quarter of these recombinations
+go to a singlet state, radiatively decaying to the $1{}^1\mathrm{S}$ state,
+which can only decay to the ground state via a two-photon continuum. 56\% of
+the time this process gives one photon energetic enough to ionize hydrogen.
+Thus in the low density limit, $p=0.75 + 0.25(0.66+0.33(0.56))= 0.96$ (since
+2/3 of the singlet states are able to decay resonantly and the remaining 1/3
+are in the two-photon continuum situation).\\
+
+\n In the high density limit, a similar calculation can be done, but many states
+are collisionally pushed to resonant states, giving $p=0.66$.\\
+
+\n As it turns out, the Str\"omgren radii for helium (first ionization) and
+hydrogen are roughly equal for high-mass stars ($T_{\mathrm{eff}} \gtrsim
+40,000\ \mathrm{K}$), and then helium's radius shrinks down to about 20\% of
+hydrogen's for lower-mass stars ($T_{\mathrm{eff}}\lesssim 30,000\
+\mathrm{K}$). For much more massive stars, there is also a $\mathrm{He^{++}}$
+Str\"omgren sphere.
 % subsubsection effects_of_helium (end)
 % subsection stromgren_spheres (end)
+
 % section h,ii_regions (end)
 \end{document}
 
