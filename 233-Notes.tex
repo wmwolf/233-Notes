@@ -1699,10 +1699,157 @@ hydrogen are roughly equal for high-mass stars ($T_{\mathrm{eff}} \gtrsim
 40,000\ \mathrm{K}$), and then helium's radius shrinks down to about 20\% of
 hydrogen's for lower-mass stars ($T_{\mathrm{eff}}\lesssim 30,000\
 \mathrm{K}$). For much more massive stars, there is also a $\mathrm{He^{++}}$
-Str\"omgren sphere.
+Str\"omgren sphere.\\
 % subsubsection effects_of_helium (end)
 % subsection stromgren_spheres (end)
 
 % section h,ii_regions (end)
+\n\textsl{MISSING NOTES FROM WEDNESDAY, FEBRUARY 19, 2014 ON RECOMBINATION
+  LINES}
+\section{Dust} % (fold)
+\label{sec:dust}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FRIDAY, FEBRUARY 21, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\n \textit{Friday, February 21, 2014}
+
+\subsection{Evidence for Dust Grains} % (fold)
+\label{sub:evidence_for_dust_grains}
+We see evidence for dust most clearly through its effects on ISM chemistry. 
+Perhaps most importantly is the role dust plays in the formation of molecular 
+hydrogen, as protons latch on to dust grains and migrate to find each other and
+form bonds much more efficiently than by direct bonding. We also see that in 
+nearby gas, metal abundances appear lower than solar values, likely because
+these atoms are locked up in dust grains. Additionally, we indirectly observe
+dust by its effect on light. It both reflects light and thus polarizes it. In
+fact, we find a direct correlation between reddening of light and the degree of
+polarization, indicating that the reddening is caused by dust. In order for 
+light to become linearly polarized, grains must be elongated and aligned. We 
+believe this is due to alignment of grains by galactic magnetic fields.\\
+
+\n Dust scatters light very effectively since cross section for such scattering
+is several orders of magnitude larger than that for Rayleigh scattering by
+atoms and small molecules. To aid in the description of scattering, we define
+the \textbf{albedo} as the ratio of the scattering cross section to the
+extinction cross section (reflection vs.\ absorption). At optical wavelengths, 
+absorption is comparable to scattering, so the albedo is approximatley a half.
+At bluer wavelengths, scattering begins to dominate.\\
+
+\n The most nearby example of dust is \textbf{zodiacal light}, which is caused
+by reflection from the sun off of dust grains in the plane of the solar system.
+This will form the bulk of the background for the James Webb Space Telescope
+when it comes online.\\
+
+\n Dust also plays an important role in reflection nebulae, which scatter UV
+light from young stars.\\
+
+\n We also define the \textbf{scattering angle}, which is the average angle of
+forward scattering when a photon interacts with a dust grain. As it turns out,
+this scattering isn't isotropic.
+% subsection evidence_for_dust_grains (end)
+\subsection{Obscuring Effects of Dust} % (fold)
+\label{sub:obscuring_effects_of_dust}
+Dust causes extinction, reducing the observed intensity of starlight. This
+effect can be measured by the Balmer decrement. Earlier we found the expected
+luminosity of Balmer emission:
+\begin{equation}
+  \label{eq:dust:1} L(\mathrm{H}_\rho) = n_p n_e
+  \alpha^{\mathrm{eff}}_{\mathrm{H}_\rho}h\nu_{\mathrm{H}_\rho} V
+\end{equation}
+where $\rho$ is the actual line being observed ($\alpha, \beta$, etc.) and $V$
+is the volume of the cloud. We found that the ratio of these fluxes in case B at
+$T\sim 10^4$ K is
+\begin{equation}
+  \label{eq:dust:2} \left(\frac{F_{\mathrm{H}_\alpha}}
+  {F_{\mathrm{H}_\beta}}\right)_{\mathrm{emitted}} = 2.86
+\end{equation}
+In reality, these fluxes are both attenuated differently by intervening dust:
+\begin{equation}
+  \label{eq:dust:3} F_{\mathrm{obs}}=F_{\mathrm{em}}e^{-\tau}
+\end{equation}
+So the observed flux ratio has an attenuation term:
+\begin{equation}
+  \label{eq:dust:4} \left(\frac{F_{\mathrm{H}_\alpha}}
+  {F_{\mathrm{H}_\beta}}\right)_{\mathrm{obs}} =
+  \left(\frac{F_{\mathrm{H}_\alpha}}
+  {F_{\mathrm{H}_\beta}}\right)_{\mathrm{emitted}}
+  \frac{e^{-\tau(\mathrm{H}_\alpha)}}{e^{-\tau(\mathrm{H}_\beta)}}
+\end{equation}
+We characterize this extinction with an \textbf{extinction curve}, $f(\lambda)$,
+where the optical depth is given by
+\begin{equation}
+  \label{eq:dust:5} \tau(\lambda) = C f(\lambda)
+\end{equation}
+Where $C$ tells us about the cloud's extinction, whereas $f(\lambda)$ tells us
+about the radiative transfer details of the line in question. The flux ratio is
+then
+\begin{equation}
+  \label{eq:dust:6} \left(\frac{F_{\mathrm{H}_\alpha}}
+  {F_{\mathrm{H}_\beta}}\right)_{\mathrm{obs}} = 2.86
+  e^{-C\left(f(\mathrm{H}_\alpha)-f(\mathrm{H}_\beta)\right)}
+\end{equation}
+we may look up values for $f(\lambda)$ for various lines and then solve for
+$C$. In magnitudes, this looks like (calculation omitted):
+\begin{equation}
+  \label{eq:dust:7} A_\lambda = 1.086 \tau_\lambda
+\end{equation}
+Impressively, the extinction in magnitudes is very close to being the optical
+depth. Often we'll see extinction written in terms of a \textbf{color excess}, 
+defined as
+\begin{equation}
+  \label{eq:dust:8} E(B-V) = \left[A(B_1) - A(B)_2) - (A(V)_1 - A(V)_2\right] = 
+  \Delta A_B - \Delta A_V
+\end{equation}
+Essentially this is used to measure the difference in the value of the $B-V$
+color with an ``expected'' value, quantifying a degree of reddening, or
+relative extinction. That is, think of comparing to identical stars at
+identical distances, but one of them is behind a cloud. The obscured one will
+appear to have a red excess, which we quantify with the color excess. We'll
+also often see a ratio of the total (or general) extinction to the relative
+extinction denoted by
+\begin{equation}
+  \label{eq:dust:9} R_V = \frac{A_V}{E(B-V)} = \frac{E(\infty, V)}{E(B-V)}
+\end{equation}
+Measuring column depths is impossible for wavelengths shorter than the lyman
+limit since the mean free path of such photons is so short due to the
+prevalence of neutral hydrogen. On the other hand, extremely long wavelength
+photons are barely extincted at all. Thus, such diagnostics are relegated to a
+certain range of wavelengths, the Ballmer decrement being an excellent
+example.\\
+
+\n The value of $R_V$ in galaxies is directly related to the size and shape of
+dust grains. We find that the wavelength dependence of extintion $A_\lambda$ in
+the optical is roughly $\lambda^{-1}$, even at 1000 \AA. This requires very
+small grains to make a substantial contribution to the extinction, since $2\pi
+a \leq \lambda \Rightarrow a \leq 0.015\,\mathrm{\mu m}$. We see that starlight
+is significatnly polarized at 5500 \AA, so the grains with size $\sim
+0.1\,\mathrm{\mu m}$ are non-spherical and substantially aligned with the
+magnetic field. the polarization of starlight decreases towards bluer
+wavelengths. The grains with $a\leq 0.05\,\mathrm{\mu m}$ which dominate the
+extinction at $\lambda < 0.3\,\mathrm{\mu m}$ are either spehrical or minimally
+aligned. MOst of the mass in in the larger grains, but most of the surface area
+is in the smaller grains.\\
+
+\n There is a peculiar bump in extinction curves at 2175 \AA present in the
+Milky Way, but largely absent in Magellanic Clouds. The best current model for
+this is a carbon sheets, called the Drude profile. There is also a strong
+feature in 3.4 $\mathrm{\mu m}$ feature from C-H stretch. Such features can
+appear as \emph{very} broad lines in spectra, but they are really just
+properties of the intervening dust.
+% subsection obscuring_effects_of_dust (end)
+\subsection{Thermal Properties of Grains} % (fold)
+\label{sub:thermal_properties_of_grains}
+Dust grains are heated by starlight because non-ionizing photons remove loosely bound electrons from the grain, adding energy to the system. In general, the grain temperature is much less than the effective temperature of the ionizing source. The heating by photon absorption is roughly given by
+\begin{equation}
+  \label{eq:dust:9} \left(\frac{dE}{dt}\right)_{\mathrm{abs}} = \int \frac{u_\nu}{h\nu} c\,h\nu Q_{\mathrm{abs}}(\nu)\pi a^2\,d\nu
+\end{equation}
+and the cooling is a Kirchhoff-like expression:
+\begin{equation}
+  \label{eq:dust:10} \left(\frac{dE}{dt}\right)_{\mathrm{em}} = \int 4\pi B_\nu(T_{\mathrm{dust}})C_{\mathrm{abs}}(\nu)\,d\nu
+\end{equation}
+Here $\j=\kappa B_\nu(T_{\mathrm{dust}})$
+% subsection thermal_properties_of_grains (end)
+% section dust (end)
+
 \end{document}
 
