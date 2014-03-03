@@ -1550,7 +1550,7 @@ source. Skipping the integrals, the Str\"omgren radius is simply
 \begin{equation}
   \label{eq:strom:20} R_{\mathrm{S}} \approx 78.2\ \mathrm{pc}\
   \left(\frac{R_*}{R_\odot}\right)^{2/3} \left(\frac{n_{\mathrm{H^0}}}{1\
-  \mathrm{cm^{-3}}}\right)^{2/3} \frac{F_1(x_1)}{x_1}
+  \mathrm{cm^{-3}}}\right)^{2/3} \frac{F_1^{1/3}(x_1)}{x_1}
 \end{equation}
 Where
 \begin{equation}
@@ -1839,17 +1839,69 @@ properties of the intervening dust.
 % subsection obscuring_effects_of_dust (end)
 \subsection{Thermal Properties of Grains} % (fold)
 \label{sub:thermal_properties_of_grains}
-Dust grains are heated by starlight because non-ionizing photons remove loosely bound electrons from the grain, adding energy to the system. In general, the grain temperature is much less than the effective temperature of the ionizing source. The heating by photon absorption is roughly given by
+Dust grains are heated by starlight because non-ionizing photons remove loosely
+bound electrons from the grain, adding energy to the system. In general, the
+grain temperature is much less than the effective temperature of the ionizing
+source. The heating by photon absorption is roughly given by
 \begin{equation}
-  \label{eq:dust:9} \left(\frac{dE}{dt}\right)_{\mathrm{abs}} = \int \frac{u_\nu}{h\nu} c\,h\nu Q_{\mathrm{abs}}(\nu)\pi a^2\,d\nu
+  \label{eq:dust:9} \left(\frac{dE}{dt}\right)_{\mathrm{abs}} = \int
+  \frac{u_\nu}{h\nu} c\,h\nu Q_{\mathrm{abs}}(\nu)\pi a^2\,d\nu
 \end{equation}
 and the cooling is a Kirchhoff-like expression:
 \begin{equation}
-  \label{eq:dust:10} \left(\frac{dE}{dt}\right)_{\mathrm{em}} = \int 4\pi B_\nu(T_{\mathrm{dust}})C_{\mathrm{abs}}(\nu)\,d\nu
+  \label{eq:dust:10} \left(\frac{dE}{dt}\right)_{\mathrm{em}} = \int 4\pi
+  B_\nu(T_{\mathrm{dust}})C_{\mathrm{abs}}(\nu)\,d\nu
 \end{equation}
 Here $j=\kappa B_\nu(T_{\mathrm{dust}})$
 % subsection thermal_properties_of_grains (end)
 % section dust (end)
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% MONDAY, MARCH 3, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Global ISM} % (fold)
+\label{sec:global_ism}
+\textit{Monday, March 3, 2014}
+\paragraph{References} % (fold)
+\label{par:references}
+Check out Draine Chapters 29 (H\,I properties), 30 (2-phase mediume) and 39.4
+(3-phase medium) as well as Dopita \& Sutherland Chapter 14, Tielens Chapter 8,
+and Spitzer's book.
+% paragraph references (end)
+\subsection{Gas Phases} % (fold)
+\label{sub:gas_phases}
+Most of the gas in the Milky Way's ISM is neutral gas. An obvious question
+would be what temperature that gas is at. As it turns out, there are more than
+one equilibrium temperatures available to this neutral gas. We know this from
+studying 21 cm emission, where we see narrow and broad components. These two
+states give rise to the \textbf{two-phase ISM} model. Note that it doesn't
+appear that there are a \emph{range} of temperatures, but really only two.\\
+
+\n The ISM is a dynamic place, where various shocks heat, churn, and compress
+gas. This, in turn helps form the dense clouds that give birth to the stars.\\
+% TODO Missed a couple bullet points.
+
+\n The various forms of the ISM, while often having vastly different densities
+and temperatures, are often in pressure equilbrium with each other. The
+exceptions are gravitationally bound molecular clouds, where the pressure
+equilibrium serves as a boundary condition as well as \HII regions, which are
+small and expanding. To complement this idea of pressure equilibrium among the
+phases, astronomers will often describe pressure in units of K cm$^{-3}$,
+effectively reporting $P/k_{\mathrm{B}}$. This is so the ideal gas law just
+looks like $P/k = nT$, and the relation between density and temperature is made
+even more obvious. Also, the numbers we deal with in these units are often more
+manageable.\\
+
+\n Different gas phases are characterized by different temperatures, densities, and ionizations. At low temperature in diffuse clouds, the dominant cooling process is the C\,II 158 $\mu$m fine structure transition. Possible heating sources include far UV photons, photoelectrons ejected from dust grains, cosmic rays, and turbulence caused by supernovae, galactic differential rotation and protostellar outflows.
+\subsection{The Two-Phase Medium} % (fold)
+\label{sub:the_two_phase_medium}
+The two-phase medum was first proposed in 1964 and 1969 by Field, Goldsmith, and Having, where only cosmi-ray ionization was thought to heat the gas. To achieve a temperature of 80 K, which is typical of the cold neutral medium, the cosmic ray ionization rate has to be 15 times larger than that indicated by recent measurememts. Nonetheless, because the heating to cosmic rays has\ldots\\
+% TODO missed the end there
+
+\n If cosmic ray heating comes up short, then we might propose carbon for heating, but in fact, photoelectron heating turns out to be about a thousand times more efficient. In this process, far UV photons are absorbed by the grain, knocking out an energetic photoelectron. The most effective grains for this process are small grains (really large molecules). These dominate the FUV absorption, especially the PAH's (sheets of carbon atoms). 
+% TODO two-phase medium figures (T vs. n_H and T vs P/k)
+% subsection the_two_phase_medium (end)
+% subsection gas_phases (end)
+% section global_ism (end)
 
 \end{document}
 
