@@ -1902,6 +1902,117 @@ The two-phase medum was first proposed in 1964 and 1969 by Field, Goldsmith, and
 % subsection the_two_phase_medium (end)
 % subsection gas_phases (end)
 % section global_ism (end)
+\section{Molecules in the ISM} % (fold)
+\label{sec:molecules_in_the_ism}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WEDNESDAY, MARCH 5, 2014 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textit{Monday, March 5, 2014}\\
+
+  \n Molecules exist in the ISM, primarily in the form of \Htwo gas. Molecules,
+  like ions, have energy levels, but they come from rotational and vibrational
+  modes as well as electronic transitions.\\
+  
+  \n For rotational mode, the levels are again quantized by a quantum number
+  $J$ via
+  \begin{equation}
+    \label{eq:mols:1} E(J) = B_0J(J+1)
+  \end{equation}
+  where $B_0$ is the rotation constant:
+  \begin{equation}
+    \label{eq:mols:2} B_0 = \frac{\hbar^2}{2m_r r_0^2}
+  \end{equation}
+  where $m_r$ is the reduced mass of the molecule. Converting the energy to a
+  frequency, we find the fundamental rotation frequency ($J=1$) to be
+  \begin{equation}
+    \label{eq:mols:3} \omega_1 = \frac{2B_0}{h}
+  \end{equation}
+  For CO, an important molecule, the fundamental frequency is at 115 GHz, and
+  this is used to track \Htwo regions.\\
+  
+  \n Rotational modes have selection rules like electronic transitions. Again,
+  the change in the angular momentum quantum number must obey $\Delta J = 0,
+  \pm 1$ with $J:0\to0$ forbidden (double check this).
+  \subsection{Composition} % (fold)
+  \label{sub:composition}
+  In the Milky Way, about 22\% of the ISM is in molecular clouds, where the
+  bulk of the hydrogen is in \Htwo gas. Nearly 100\% of the hydrogen in the
+  centers of starburst galaxies is molecular. On the other hand, some low
+  metallicity galaxis have only a very tiny molecular gas fraction (since dust
+  grains enhance \Htwo formation).\\
+  
+  \n Within the milky way, there are many environments in which \Htwo gas
+  exists, with densities rangind from 50\ cm$^{-3}$ to $10^6$ cm$^{-3}$ and
+  masses spanning from 0.3 $M_\odot$ to $10^{5.8}\ M_\odot$. These regions give
+  a way to directly measure ISM via Zeeman splitting in OH, CN, and \HI.\\
+  
+  \n There is a strong radial dependence on what form hydrogen takes in the
+  Milky Way. Out to about 7 kpc, \Htwo dominates, whereafter \HI takes over.
+  \HII is never a dominant form of hydrogen, though it peaks around 4 kpc.
+  Beyond $\sim$ 11 kpc, the total gas surface density declines exponentially
+  with a scale length of $\sim$ 3.5 kpc.
+  % subsection composition (end)
+  \subsection{Formation and Destruction of Molecular Hydrogen} % (fold)
+  \label{sub:formation_of_molecular_hydrogen}
+  Since there is no electric dipole when two free hydrogen atoms approach, we
+  cannot easily observe \Htwo formation. In principle, the electric quadrupole
+  raiation can remove energy from the system and leave the two atoms in a bound
+  \Htwo state. However, this rate coefficent is so very small that this
+  reaction can be safely ignored.
+
+  \n In a three body reaction, a third atom can carry off the energy released
+  in the formation of $\mathrm{H}_2$. These reactions are very slow and only
+  important in high densities like protostars and their disks. It can form by
+  radiative association ($\mathrm{H} + e^- \to \mathrm{H}^- + h\nu$) and the
+  associative detachment ($\mathrm{H}^- + H \to \mathrm{H}_2 + e^-$). This
+  reaction is limited by the density of hydronium and\ldots\\
+  % TODO missed punchline
+  
+  \n If dust grains are present, however, hydrogen atoms can bind to a grain
+  surface, migrate for a bit, then become trapped. When two such atoms meet in
+  the same trap, they react to form \Htwo. The 4.5 eV of energy released frees
+  the \Htwo from the grain surface. The measured rate coefficeint (for diffuse
+  clouds) is $R_{\mathrm{gr}} = 3\times 10^{-17}\ \mathrm{cm^3\,s^{-1}}$. This
+  simple estimate is consistent if roughtly 10-50\% of the grains grain
+  collisions produce \Htwo.\\
+  
+  \n For every formation process (in equilibrium), there is always a
+  destruction process. Since \Htwo has an ionization threshold of 15.43 eV,
+  \Htwo is typically not ionized. Photodissociation occurs via line rather than
+  continuum radiation. The photodissociation rate is $\approx 4.2\times
+  10^{-11}\ \mathrm{s^{-1}}$. The photodissociation rate depends mainly on the
+  intensity of the radiation field in the 1100-912 \AA bandpass, requiring a UV
+  source of radiation.\\
+  
+  \n However, inside giant molecular clouds, self-sheilding reduces the
+  photodissociation rate by 3 to 5 orders of magnitude. To do the calculation
+  correctly, radiative transfer calculations are required.
+    % subsection formation_of_molecular_hydrogen (end)
+  \subsection{Measuring Cloud Masses} % (fold)
+  \label{sub:measuring_cloud_masses}
+  At $\lambda > 300\ \mu\mathrm{m}$, the dust emission is generally optically thin. Since this is well into the Rayleigh-Jeans tail, $B_\nu\propto T$. In this regime, radiative transfer correctiosn are unnecessary, and the dust mass is easily measured:
+  \begin{equation}
+    \label{mols:5} F_\nu = \left(\frac{M_{\mathrm{dust}}}{\mathrm{Area}}\right)
+    \Omega \kappa_\nu B_\nu
+  \end{equation}
+  The dust opacity is the absorption cross section per unit mass of dust at
+  frequency $\nu$. It is well measured in \HI clouds but could change with
+  composition and grain temperature. Since we can measure the dust mass, we can
+  use this to estimate the total mass of molecular clouds. This works well to a
+  factor of a few. Fortunately, this method doesn't depend on the mysterios 
+  X-factor that translates CO emission to \Htwo gas.
+  % subsection measuring_cloud_masses (end)
+  \subsection{Electric Dipole Mission from CO} % (fold)
+  \label{sub:electric_dipole_mission_from_co}
+  The rotational lines of CO are frequently used to trace molecular gas. In the
+  Milky Way, the number densities of these two molecules is
+  \begin{equation}
+    \label{eq:CO:1} \frac{n(\mathrm{CO})}{n(\mathrm{H}_2)} \approx 7\times
+    10^{-5}
+  \end{equation}
+  The frequency for the fundamental transition, as mentioned earlier, where $J:1\to 0$, is $\nu_10 = 115$ GHz ($\lambda = 2.50$ mm). The spontaenous decay rate is $A_{10}=7\times 10^{-8}\ \mathrm{s^{-1}}$. Transitions from higher states than $J=1$ give higher frequencies, and are thus more likely to be observed from high-redshift galaxies. We'd now like to relate the CO $J:1\to0$ transition to the elusive \Htwo mass.
+  % subsection electric_dipole_mission_from_co (end)
+% section molecules_in_the_ism (end)
 
 \end{document}
 
