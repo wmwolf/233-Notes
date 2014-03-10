@@ -1990,7 +1990,10 @@ The two-phase medum was first proposed in 1964 and 1969 by Field, Goldsmith, and
     % subsection formation_of_molecular_hydrogen (end)
   \subsection{Measuring Cloud Masses} % (fold)
   \label{sub:measuring_cloud_masses}
-  At $\lambda > 300\ \mu\mathrm{m}$, the dust emission is generally optically thin. Since this is well into the Rayleigh-Jeans tail, $B_\nu\propto T$. In this regime, radiative transfer correctiosn are unnecessary, and the dust mass is easily measured:
+  At $\lambda > 300\ \mu\mathrm{m}$, the dust emission is generally optically
+  thin. Since this is well into the Rayleigh-Jeans tail, $B_\nu\propto T$. In
+  this regime, radiative transfer correctiosn are unnecessary, and the dust
+  mass is easily measured:
   \begin{equation}
     \label{mols:5} F_\nu = \left(\frac{M_{\mathrm{dust}}}{\mathrm{Area}}\right)
     \Omega \kappa_\nu B_\nu
@@ -2010,9 +2013,155 @@ The two-phase medum was first proposed in 1964 and 1969 by Field, Goldsmith, and
     \label{eq:CO:1} \frac{n(\mathrm{CO})}{n(\mathrm{H}_2)} \approx 7\times
     10^{-5}
   \end{equation}
-  The frequency for the fundamental transition, as mentioned earlier, where $J:1\to 0$, is $\nu_10 = 115$ GHz ($\lambda = 2.50$ mm). The spontaenous decay rate is $A_{10}=7\times 10^{-8}\ \mathrm{s^{-1}}$. Transitions from higher states than $J=1$ give higher frequencies, and are thus more likely to be observed from high-redshift galaxies. We'd now like to relate the CO $J:1\to0$ transition to the elusive \Htwo mass.
+  The frequency for the fundamental transition, as mentioned earlier, where
+  $J:1\to 0$, is $\nu_{10} = 115$ GHz ($\lambda = 2.50$ mm). The spontaenous
+  decay rate is $A_{10}=7\times 10^{-8}\ \mathrm{s^{-1}}$. Transitions from
+  higher states than $J=1$ give higher frequencies, and are thus more likely to
+  be observed from high-redshift galaxies. We'd now like to relate the CO
+  $J:1\to0$ transition to the elusive \Htwo mass.\\
+  %%%%%%%%%%%%%%%%%%%%%%%%%%
+  % MONDAY, MARCH 11, 2014 %
+  %%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  \n \textit{Monday, March 11, 2014}\\
+  
+  \n The collisional de-excitation rate for the $J:1\to0$ transition in CO is
+  $k_{10} = 6\times 10^{-11}T_2^{0.2}\ \mathrm{cm^3\,s^{-1}}$ where $T_2 \equiv
+  T/100\ \mathrm{K}$. The absorption coefficeint (per unit length) gives us a
+  line of sight optical depth of
+  \begin{equation}
+    \label{eq:mols:6} \tau_o = \kappa_{\nu0}R
+  \end{equation}
+  where we assume a Gaussian profile for the absorption:
+  \begin{equation}
+    \label{eq:mols:7} \kappa_\nu = n_\ell\left(1-\frac{n_u}{n_\ell}
+    \frac{g_\ell}{g_u}\right) \frac{\lambda^2}{8\pi} \frac{g_u}{g_\ell}
+    A_{u\ell} \frac{1}{\sqrt{\pi}} \frac{\lambda}{b} e^{-\left(\Delta
+    \nu/b\right)^2}
+  \end{equation}
+  for some doppler parameter $b$. Assuming a Boltzmann distribution of
+  excitation states in CO, we can get the number density of a particular
+  excited state of CO:
+  \begin{equation}
+    \label{eq:mols:8} \frac{n_{\mathrm{CO}}(J)}{n_{\mathrm{CO}}} = \frac{(2J+1)
+    e^{-B_0 J(J+1)/kT}}{ \sum_J (2J+1) e^{-B_0 J(J+1)/kT}}
+  \end{equation}
+  Draine gives us a nifty (and not necessarily obvious) approximation for the
+  partition function in \eqref{eq:mols:8}:
+  \begin{equation}
+    \label{eq:mols:9} \sum_J (2J+1) e^{-B_0 J(J+1)/kT} \approx \sqrt{1 +
+    \left(\frac{kT}{B_0}\right)}
+  \end{equation}
+  Skipping over some algera, the optical depth at line center ($\Delta \nu =
+  0$), scaled to fiducial values, is
+  \begin{equation}
+    \label{eq:mols:10} \tau_0 = 50\, n_3 R_{19}
+    \left(\frac{n(\mathrm{CO})/n(\mathrm{H})}{7\times 10^{-5}}\right)
+    \left(\frac{2\,\mathrm{km\,s^{-1}}}{b}\right)
+  \end{equation}
+  Now we want to identify the critical density for this transition. In the
+  naive, optically thin limit, we solve for $n_{\mathrm{crit}}$ in the usual
+  way, by equating the spontaneous emission and the collisional de-excitation
+  rates:
+  \begin{align}
+    \label{eq:mols:11} n_{\mathrm{crit}} k_{10} &= A_{10}\\
+    \label{eq:mols:12} n_{\mathrm{crit}}(\mathrm{CO:1\to0}) &=
+    \frac{A_{10}}{k_{10}}\\
+    \label{eq:mols:13} &= 1200\ T_2^{-0.2}\ \mathrm{cm^{-3}}
+  \end{align}
+  In the optically thick limit, however, \textbf{radiative trapping} happens,
+  effectively reducing the spontaneous emission coefficient. To compensate for
+  this, we multiply the radiative decay coefficient by the probability of
+  escape. Since this reduces $A_{10}$, the critial density is \emph{reduced}.
+  The result is worked out in Draine 19.2, 19.2, assuming a homogeneous, static,
+  and spherical cloud. The averaged escape probability of line photon is
+  \begin{equation}
+    \label{eq:mols:14} \avg{\beta} = \frac{1}{1 + 0.5\tau_0} \approx 0.04
+  \end{equation}
+  Geometrically, this 4 percent is the fraction of the volume (and thus the
+  mass) that is at an optical depth less than 2/3 (where photons can freely
+  escape). This brings the optical depth down to
+  \begin{equation}
+    \label{eq:mols:15} n_{\mathrm{crit}}(\mathrm{CO:1\to0}) \approx 50\
+    T_2^{-0.2}\ \mathrm{cm^{-3}}
+  \end{equation}
+  Since these clouds are much higher than the critical density, we may assume
+  that at least the $J=1$ level is expected to be thermalized in molecular
+  clouds. This simplifies our calculations by giving us a meaningful
+  thermodynamic temperature.\\
+  
+  \n The CO luminosity of the cloud can be calculated via
+  \begin{equation}
+    \label{eq:mols:16} L_{u\ell} = \int_0^R n_u A_{u\ell}\,h\nu_{u\ell}
+    \avg{\beta} 4\pi r^2\,dr
+  \end{equation}
+  Now again skipping a bunch of algebra, we get a luminosity per unit mass of
+  \begin{equation}
+    \label{eq:mols:17} \frac{L_{u\ell}}{M} = 32\pi^2
+    \left(\frac{2G}{15}\right)^{1/2} \frac{hc}{\lambda_{u\ell}^4}
+    \frac{1}{\avg{\rho}^{1/2}} \frac{1}{e^{h\nu/kT}-1} \propto
+    \frac{T}{\avg{\rho}^{1/2}}
+  \end{equation}
+  From an observer's perspective, the measured luminosity is
+  \begin{equation}
+    \label{eq:mols:17} L_{\mathrm{CO}} = d^2\int I_{\mathrm{CO}}\,d\Omega
+  \end{equation}
+  Where the area of the cloud is $A = d^2\,\Delta \Omega$ and the intensity is
+  \begin{equation}
+    \label{eq:mols:18} I_{\mathrm{CO}} = \int T_B\,dv
+  \end{equation}
+  And thus the luminosity is approximately
+  \begin{equation}
+    \label{eq:mols:19} L_{\mathrm{CO}} = T_B \Delta v\,\pi R^2
+  \end{equation}
+  From teh Virial theorem, we get
+  \begin{equation}
+    \label{eq:mols:20} \sqrt{\frac{GM}{R}}\approx v
+  \end{equation}
+  And so from a rough calculation, we get a luminosity of
+  \begin{equation}
+    \label{eq:mols:21} L_{\mathrm{CO}} = \sqrt{\frac{3\pi G}{4\rho}} T_B
+    M_{\mathrm{GMC}}
+  \end{equation}
+  which fortunately has the same scaling as our analytical result. In the end,
+  the all-important \textbf{X-Factor} is given by (at least locally)
+  \begin{equation}
+    \label{eq:mols:22} X_{\mathrm{CO}} = \frac{N(\mathrm{H_2})}{\int T_B\,dv} = 
+    1.56\times 10^{20}\ \mathrm{cm^{-2} / K\ km\,s^{-1}}
+  \end{equation}
+  Using infrared emission from dust in the Milky Way as the mass tracer gives
+  an X-factor of $1.8(\pm 0.3)\times 10^{20}\ \mathrm{cm^{-2} / K\
+  km\,s^{-1}}$. Using diffuse gamma ray emission to count the number of
+  hydrogen nuclei, we get still more consistent results.\\
+  
+  \n Thus, CO emission is a fairly trustworthy measure of the mass of a giant molecular cloud. The problem is trying to use the Milky Way's X-factor to get information from other galaxies. Even in local group, the X-factor goes up by over a factor of two. In low-metallicity galaxies, $X_{\mathrm{CO}}$ is 5-6 times \emph{lower} than is measured in the Milky Way.
   % subsection electric_dipole_mission_from_co (end)
-% section molecules_in_the_ism (end)
+  \subsection{Rotational Levels of \Htwo} % (fold)
+  \label{sub:rotational_levels_of_htwo}
+  Vibrationally excited levels have radiative lifetimes of just $\sim 10^{-6}$ s, and de-excitation by colllisions with H, \Htwo, or He is unlikely at densities $n_{\mathrm{H}}<10^4\ \mathrm{cm^{-3}}$. 
+  % TODO finish this slide
+  % subsection rotational_levels_of_htwo (end)
 
+% section molecules_in_the_ism (end)
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
